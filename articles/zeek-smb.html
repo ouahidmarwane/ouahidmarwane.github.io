@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Marwane Ouahid">
+<meta property="og:title" content="Superviser un serveur SMB sensible avec Zeek">
+<meta property="og:description" content="Port miroir, Zeek, Filebeat, Elasticsearch et Kibana : la traçabilité complète des accès à un serveur sensible, pour un audit Cisco.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ouahidmarwane.github.io/articles/zeek-smb.html">
+<meta property="og:image" content="https://ouahidmarwane.github.io/portrait.jpg">
+<link rel="canonical" href="https://ouahidmarwane.github.io/articles/zeek-smb.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C9F73D'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='700' font-size='30' fill='%2305070A'%3E%3E_%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Retour d'expérience : superviser un serveur SMB hébergeant des données sensibles avec Zeek, un port miroir et la stack ELK, pour répondre aux exigences de traçabilité d'un audit Cisco.">
+<title>Superviser un serveur SMB sensible avec Zeek — Marwane Ouahid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="../index.html#articles">← marwane@sec</a>
+  <div class="eyebrow">// article · supervision réseau</div>
+  <h1>Superviser un serveur SMB sensible avec Zeek</h1>
+  <p class="meta">Marwane Ouahid · stage FedEx, février – juin 2026 · lecture 5 min</p>
+
+  <p class="lede">Pendant mon stage réseau et cybersécurité chez FedEx, j'ai déployé et configuré Zeek pour superviser un serveur SMB qui hébergeait des données sensibles, et suivre les activités des utilisateurs dessus. Voici pourquoi j'ai choisi cet outil, ce qu'il permet de voir, et ce que j'en retiens.</p>
+
+  <h2>Le problème</h2>
+  <p>Un serveur de fichiers SMB contenait des données sensibles de l'entreprise. La question était simple à poser, moins à résoudre : <strong>qui accède à ce serveur, et qu'y fait-il ?</strong></p>
+  <p>Le contexte qui a déclenché le besoin était direct : FedEx Globex Maroc, en tant que dépositaire du stock Cisco de tout le Maroc, était soumise à un <strong>audit Cisco</strong> imposant une traçabilité complète des accès réseau. L'exigence était claire — journaliser qui accède à quoi, quand, et depuis quelle machine — sans perturber le réseau de production ni impacter les performances.</p>
+
+  <h2>Pourquoi Zeek</h2>
+  <p>Zeek est un outil open source d'analyse du trafic réseau. Il ne bloque rien : il observe passivement une copie du trafic et le transforme en journaux structurés, un fichier par type d'activité. C'est ce qui en fait un bon outil de traçabilité : la visibilité vient du réseau, pas du serveur lui-même.</p>
+  <p>Dans notre cas, Zeek s'est imposé pour plusieurs raisons :</p>
+  <ul>
+    <li><strong>Sa nature passive.</strong> Déployé sur une machine dédiée recevant une copie du trafic via port miroir (SPAN), il n'interfère en aucune façon avec le réseau de production.</li>
+    <li><strong>La granularité de ses logs SMB.</strong> Parmi les outils gratuits, peu offrent ce niveau de détail : il descend au niveau du fichier, pas seulement de la connexion.</li>
+    <li><strong>Son intégration avec la stack ELK.</strong> Via Filebeat, les logs pouvaient être centralisés et visualisés dans Kibana, qui faisait déjà partie de notre architecture.</li>
+  </ul>
+
+  <h2>Ce que Zeek voit sur un serveur SMB</h2>
+  <p>Zeek embarque un analyseur SMB. Sur ce type de trafic, il produit notamment :</p>
+  <ul>
+    <li><code>conn.log</code> — chaque connexion : qui parle à qui, quand, pendant combien de temps, quel volume ;</li>
+    <li><code>smb_mapping.log</code> — les partages auxquels un client se connecte ;</li>
+    <li><code>smb_files.log</code> — les actions sur les fichiers : ouverture, lecture, écriture, suppression, renommage ;</li>
+    <li><code>ntlm.log</code> et <code>kerberos.log</code> — les authentifications, et donc les comptes utilisés.</li>
+  </ul>
+  <p>En croisant ces journaux, on peut reconstituer une activité complète : tel compte, depuis telle machine, s'est connecté à tel partage et a ouvert tel fichier — exactement ce que l'audit Cisco exigeait.</p>
+
+  <h2>La mise en place</h2>
+  <p>Le trafic arrivait jusqu'à Zeek via un <strong>port miroir (SPAN)</strong> configuré sur le switch managé du réseau. Le switch copiait l'intégralité du trafic LAN vers l'interface réseau dédiée du serveur Zeek, déployé sur une machine <strong>Ubuntu sous VMware</strong>.</p>
+  <p>La configuration s'est faite en plusieurs étapes :</p>
+  <ol>
+    <li>installation de Zeek dans <code>/usr/local/zeek</code> ;</li>
+    <li>activation du format JSON pour tous les logs : <code>@load policy/tuning/json-logs.zeek</code> ;</li>
+    <li>déploiement via <code>zeekctl deploy</code>.</li>
+  </ol>
+  <p>Les logs générés en temps réel dans <code>/usr/local/zeek/logs/current/</code> étaient ensuite collectés par <strong>Filebeat</strong> et envoyés vers <strong>Elasticsearch</strong>, avec une politique <strong>ILM</strong> : rollover à 30 jours ou 50 GB, suppression automatique à 365 jours.</p>
+  <p>Le serveur SMB était isolé derrière le firewall Sophos XG125, et les utilisateurs y accédaient via un <strong>VPN SSL</strong> configuré sur ce même firewall. Zeek supervisait donc l'intégralité du trafic issu du tunnel VPN vers le serveur — chaque accès fichier était capturé, sans exception.</p>
+
+  <h2>Ce que ça a permis</h2>
+  <p>La supervision a fourni une <strong>traçabilité totale et horodatée</strong> de chaque accès au serveur SMB : compte utilisateur, machine source, partage ciblé, fichiers ouverts ou modifiés. Ces éléments ont constitué une réponse directe aux exigences de l'audit Cisco sur la journalisation des accès aux ressources sensibles.</p>
+  <p>Au-delà de l'audit, l'architecture a prouvé son utilité opérationnelle. Lors d'un incident de sécurité, les logs <code>dns.log</code> de Zeek ont permis de détecter un <strong>trafic DNS anormal</strong> — des requêtes de type DGA, caractéristiques d'un malware communiquant avec un serveur C2 — depuis un poste utilisateur. Le poste a été isolé et le malware supprimé avant toute exfiltration : une détection que les outils endpoint seuls n'avaient pas remontée.</p>
+
+  <h2>Les limites à connaître</h2>
+  <ul>
+    <li>Zeek voit le réseau, pas le disque : une action faite localement sur le serveur ne passe pas par lui.</li>
+    <li>Quand SMB 3 chiffre les échanges, Zeek voit toujours les connexions et les authentifications, mais plus le détail des fichiers.</li>
+    <li>Les journaux sont volumineux : sans rotation, filtrage ou envoi vers un outil de recherche, ils deviennent vite difficiles à exploiter.</li>
+  </ul>
+  <p>Dans la pratique, le <strong>volume de logs</strong> a été le principal défi. Sans la politique ILM configurée sur Elasticsearch, l'index aurait saturé en quelques semaines. La configuration du rollover et de la suppression automatique à 365 jours a été indispensable pour tenir sur la durée.</p>
+
+  <h2>Ce que j'en retiens</h2>
+  <p>Trois leçons concrètes de ce déploiement.</p>
+  <p><strong>1. La supervision passive est souvent plus pertinente que la supervision active pour les données sensibles.</strong> Zeek ne touche pas au serveur, ne génère pas de charge supplémentaire, et pourtant donne une visibilité que peu d'outils actifs atteignent.</p>
+  <p><strong>2. Un outil de supervision n'a de valeur que si ses données sont exploitables.</strong> Déployer Zeek sans Elasticsearch et Kibana derrière, c'est produire des logs que personne ne lira. L'architecture complète — capture, ingestion, indexation, visualisation — est aussi importante que l'outil lui-même.</p>
+  <p><strong>3. La supervision réseau et la sécurité endpoint sont complémentaires, pas substituables.</strong> C'est la combinaison de Zeek côté réseau et de Kaspersky côté endpoint qui a permis de couvrir les deux angles lors de l'incident malware : Zeek a repéré le trafic anormal que l'antivirus n'avait pas signalé, puis le poste a été isolé et nettoyé. Aucun des deux seuls n'aurait suffi.</p>
+
+  <div class="foot">
+    <p>Marwane Ouahid — élève-ingénieur en sécurité et gestion des risques, Université Mundiapolis. Je cherche un stage de fin d'études de six mois, du 2 février au 31 juillet 2027.</p>
+    <p><a href="../index.html#contact">Me contacter</a> · <a href="https://www.linkedin.com/in/marwane-ouahid-0ab745309" target="_blank" rel="noopener">LinkedIn</a></p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,2205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Marwane Ouahid, élève-ingénieur en sécurité et gestion des risques (Bac+5, Université Mundiapolis). Recherche un stage PFE de 6 mois en cybersécurité, du 2 février au 31 juillet 2027 : SOC, SIEM, sécurité réseau, gestion des vulnérabilités, pentest, ISO/IEC 27001.">
+<meta name="keywords" content="stage PFE cybersécurité, stage fin d'études 2027, internship cybersecurity, élève-ingénieur sécurité, sécurité et gestion des risques, analyste SOC, SOC analyst, blue team, SIEM, Zeek, ELK, Elasticsearch, Kibana, Filebeat, port mirroring, SPAN, Zabbix, détection des menaces, réponse aux incidents, incident response, sécurité réseau, network security, FortiGate, OPNsense, DMZ, VLAN, VPN, 802.1X, NAC, PacketFence, RADIUS, Active Directory, gestion des vulnérabilités, vulnerability management, Greenbone, OpenVAS, CVSS, pentest, test d'intrusion, penetration testing, Kali Linux, Nmap, Metasploit, forensics, CTF, ISO 27001, ISO/IEC 27001, gestion des risques, GRC, ITIL 4, AWS, AWS IAM, VMware, Docker, Veeam, Windows Server, Python, Big Data, Casablanca, Maroc, Morocco">
+<meta name="author" content="Marwane Ouahid">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Marwane Ouahid — stage PFE cybersécurité, février → juillet 2027">
+<meta property="og:description" content="Élève-ingénieur en sécurité et gestion des risques. SOC, SIEM, sécurité réseau, gestion des vulnérabilités, pentest, ISO/IEC 27001. Stage FedEx, top 5 % du CTF national DGSSI.">
+<link rel="canonical" href="https://ouahidmarwane.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C9F73D'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='700' font-size='30' fill='%2305070A'%3E%3E_%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#05070A">
+<meta property="og:url" content="https://ouahidmarwane.github.io/">
+<meta property="og:image" content="https://ouahidmarwane.github.io/portrait.jpg">
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<title>Marwane Ouahid — Stage PFE cybersécurité · SOC, sécurité réseau, ISO 27001</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marwane Ouahid",
+  "jobTitle": "Élève-ingénieur en sécurité et gestion des risques",
+  "description": "Recherche un stage de fin d'études (PFE) de 6 mois en cybersécurité, du 2 février au 31 juillet 2027.",
+  "url": "https://ouahidmarwane.github.io/",
+  "image": "https://ouahidmarwane.github.io/portrait.jpg",
+  "email": "mailto:ma.ouahid@mundiapolis.ma",
+  "address": { "@type": "PostalAddress", "addressLocality": "Casablanca", "addressCountry": "MA" },
+  "sameAs": ["https://www.linkedin.com/in/marwane-ouahid-0ab745309"],
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Université Mundiapolis" },
+    { "@type": "CollegeOrUniversity", "name": "Yiwu Industrial & Commercial College" }
+  ],
+  "knowsLanguage": ["ar", "fr", "en", "zh"],
+  "knowsAbout": ["Cybersécurité", "SOC", "SIEM", "Zeek", "Elasticsearch", "Kibana", "Filebeat", "Zabbix", "Détection des menaces", "Réponse aux incidents",
+    "Sécurité réseau", "FortiGate", "OPNsense", "802.1X", "PacketFence", "RADIUS", "Active Directory",
+    "Gestion des vulnérabilités", "Greenbone", "OpenVAS", "CVSS", "Tests d'intrusion", "Kali Linux", "Nmap", "Metasploit",
+    "ISO/IEC 27001", "Gestion des risques", "ITIL 4", "AWS", "VMware", "Docker", "Veeam", "Python", "Big Data"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+
+<!--
+  ██  Tu lis la source. Bon réflexe.
+  ██  hint: aGludDogdGFwZSAic3VkbyAtbCIgZGFucyBsZSB0ZXJtaW5hbCAvIHR5cGUgInN1ZG8gLWwiIGluIHRoZSB0ZXJtaW5hbA==
+-->
+
+<style>
+:root{
+  color-scheme: dark;
+  /* Un noir bleuté plutôt qu'un noir pur : le vert et le cyan y respirent. */
+  --void:#05070A; --panel:#0A0F14; --panel2:#0E151B; --line:#17222B; --line2:#233240;
+  --txt:#E8F1EC; --dim:#83959C; --faint:#5A6970;
+  --lime:#C9F73D; --cyan:#35D6F5; --amber:#FFB020; --red:#FF5C5C;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --disp:"Archivo","Archivo Black",system-ui,sans-serif;
+  --wrap:1140px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--void); color:var(--txt);
+  font:400 16px/1.65 var(--sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto}
+a{color:inherit}
+::selection{background:var(--lime);color:#05070A}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+section{position:relative}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* ---------- eyebrows et titres ---------- */
+.eyebrow{
+  font:500 12px/1 var(--mono); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--lime); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+}
+.eyebrow b{color:var(--faint);font-weight:500}
+h2{
+  font:800 clamp(28px,4.4vw,46px)/1.05 var(--disp);
+  letter-spacing:-.025em; margin:0 0 14px; text-wrap:balance;
+}
+h3{font:600 19px/1.3 var(--disp);letter-spacing:-.01em;margin:0 0 8px}
+.lede{color:var(--dim);max-width:62ch;margin:0}
+.sec{padding-block:clamp(56px,8vw,96px)}
+
+/* ---------- navigation ---------- */
+header.nav{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:60;
+  background:rgba(5,7,10,.82); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.navin{display:flex;align-items:center;gap:18px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font:500 14px/1 var(--mono);letter-spacing:.02em}
+.brand .sq{
+  width:28px;height:28px;border-radius:7px;display:grid;place-items:center;
+  background:linear-gradient(145deg,var(--lime),#7ecb1e);color:#05070A;font-weight:700;font-size:13px;
+}
+.navlinks{display:none;gap:4px;margin-left:auto}
+.navlinks a{
+  font:400 13.5px/1 var(--sans); color:var(--dim); text-decoration:none;
+  padding:9px 13px;border-radius:8px;transition:color .18s,background .18s;
+}
+.navlinks a:hover,.navlinks a.on{color:var(--txt);background:var(--panel2)}
+.navtools{display:flex;align-items:center;gap:10px;margin-left:auto}
+.navlinks+.navtools{margin-left:0}
+@media(min-width:900px){.navlinks{display:flex}}
+
+.langsw{display:flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.langsw button{
+  appearance:none;border:0;background:transparent;color:var(--dim);cursor:pointer;
+  font:500 11.5px/1 var(--mono);letter-spacing:.1em;padding:7px 11px;transition:.18s;
+}
+.langsw button[aria-pressed="true"]{background:var(--lime);color:#05070A}
+.langsw button:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+
+.btn{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;text-decoration:none;
+  font:500 14px/1 var(--sans);padding:12px 20px;border-radius:999px;border:1px solid transparent;
+  transition:transform .16s cubic-bezier(.2,.7,.3,1),box-shadow .2s,background .2s,color .2s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-p{background:var(--lime);color:#05070A;font-weight:500;box-shadow:0 0 0 0 rgba(201,247,61,.45)}
+.btn-p:hover{box-shadow:0 0 30px -4px rgba(201,247,61,.55)}
+.btn-g{border-color:var(--line2);color:var(--txt);background:rgba(255,255,255,.02)}
+.btn-g:hover{border-color:var(--lime);color:var(--lime)}
+.btn-s{font-size:13px;padding:9px 15px}
+.btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(28px,4vw,52px);padding-bottom:clamp(20px,3vw,34px);overflow:hidden}
+#rain{position:absolute;inset:0;width:100%;height:100%;opacity:.11;pointer-events:none}
+.heroin{position:relative;display:grid;gap:30px;align-items:center}
+@media(min-width:940px){.heroin{grid-template-columns:1.18fr .8fr;gap:44px;align-items:center}}
+
+.chip{
+  display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line2);
+  border-radius:999px;padding:7px 14px;font:500 11.5px/1 var(--mono);
+  letter-spacing:.09em;text-transform:uppercase;color:var(--dim);background:var(--panel)
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(201,247,61,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(201,247,61,0)}100%{box-shadow:0 0 0 0 rgba(201,247,61,0)}}
+
+.name{
+  font:800 clamp(46px,10.5vw,104px)/.9 var(--disp);
+  letter-spacing:-.045em;margin:20px 0 0;text-transform:uppercase;
+}
+.name span{color:var(--lime)}
+.roleline{
+  font:500 clamp(15px,2.2vw,21px)/1.3 var(--mono);color:var(--cyan);
+  margin:16px 0 0;letter-spacing:-.01em;min-height:1.3em;
+}
+.caret{display:inline-block;width:.6ch;background:var(--cyan);animation:blink 1.05s steps(1) infinite;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+.pitch{color:var(--dim);max-width:54ch;margin:20px 0 0;font-size:16.5px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+.stats{
+  display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);
+  border-block:1px solid var(--line);margin-top:8px;grid-column:1/-1;
+}
+@media(min-width:620px){.stats{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:940px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat:nth-child(4) .v{color:var(--amber)}
+.stat{background:var(--void);padding:16px 16px;display:flex;align-items:baseline;gap:14px}
+.stat:first-child{padding-left:0}
+@media(min-width:620px){.stat{display:block;padding:20px 16px}}
+.stat .v{font:800 clamp(24px,3.6vw,36px)/1 var(--disp);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat:nth-child(1) .v{color:var(--lime)}
+.stat:nth-child(2) .v{color:var(--cyan)}
+.stat .k{font:400 11.5px/1.45 var(--mono);color:var(--faint);letter-spacing:.07em;text-transform:uppercase}
+@media(min-width:620px){.stat .k{margin-top:9px}}
+.stat .v{white-space:nowrap}
+
+.portrait{position:relative;justify-self:center;align-self:start;width:min(360px,80vw);isolation:isolate}
+@media(min-width:940px){.portrait{margin-top:-24px}}
+.portrait img{
+  position:relative;z-index:1;display:block;width:100%;
+  /* contre-jour vert : liseré net + lumière diffuse venant de la gauche */
+  filter:drop-shadow(-2px -1px 1.5px rgba(201,247,61,.45)) drop-shadow(-6px -4px 12px rgba(201,247,61,.22));
+  -webkit-mask-image:linear-gradient(180deg,#000 66%,transparent 98%),linear-gradient(270deg,transparent 0,#000 12%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(180deg,#000 66%,transparent 98%),linear-gradient(270deg,transparent 0,#000 12%);
+  mask-composite:intersect;
+}
+/* halo vert diffus derrière le portrait */
+.portrait::before{
+  content:"";position:absolute;z-index:0;left:50%;top:0;width:115%;height:80%;
+  transform:translateX(-50%);pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 50% at 48% 36%,rgba(201,247,61,.26),rgba(201,247,61,.08) 55%,transparent 75%),
+    radial-gradient(ellipse 35% 35% at 75% 65%,rgba(53,214,245,.10),transparent 75%);
+  filter:blur(24px);animation:halo 7s ease-in-out infinite alternate;
+}
+@keyframes halo{from{opacity:.75;transform:translateX(-50%) scale(.96)}to{opacity:1;transform:translateX(-50%) scale(1.04)}}
+/* le portrait flotte doucement, en continu */
+.portrait{animation:float 7s ease-in-out infinite}
+@keyframes float{
+  0%,100%{transform:translate(0,0) rotate(0deg)}
+  25%{transform:translate(3px,-7px) rotate(.4deg)}
+  50%{transform:translate(0,-12px) rotate(0deg)}
+  75%{transform:translate(-3px,-6px) rotate(-.4deg)}
+}
+@media(prefers-reduced-motion:reduce){.portrait::before,.portrait{animation:none}}
+/* drapeau du Maroc : moitié gauche cachée derrière le sujet, moitié droite qui flotte */
+#flag{
+  position:absolute;z-index:0;left:55%;top:20%;width:44%;height:auto;pointer-events:none;
+  /* plus contrasté et un peu plus sombre, pour tenir dans le thème noir */
+  filter:contrast(1.28) brightness(.74) saturate(1.1) drop-shadow(0 8px 16px rgba(0,0,0,.55));
+}
+
+/* ---------- effets interactifs (actifs seulement avec une souris, cf. html.fx) ---------- */
+#net{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero .heroin{z-index:1}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;transition:opacity .5s;
+  background:radial-gradient(520px 380px at var(--hx,50%) var(--hy,40%),rgba(201,247,61,.075),transparent 70%);
+}
+.hero.lit::before{opacity:1}
+/* le lissage est fait en JS (boucle rAF) : pas de transition CSS qui freinerait */
+.fx .portrait img{will-change:transform}
+.fx .portrait::before{margin-left:var(--px,0px);margin-top:var(--py,0px)}
+.fx .heroin > div:first-child{will-change:transform}
+.name .ch{display:inline-block;font-style:normal;will-change:transform}
+.fx .btn-p{background:radial-gradient(90px circle at var(--bx,50%) var(--by,50%),#EDFFA6,var(--lime) 70%)}
+.fx .card{transition:border-color .22s,transform .35s cubic-bezier(.2,.7,.3,1)}
+#fxc{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:9997}
+#progress{
+  position:fixed;left:0;top:0;right:0;height:2px;z-index:100;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--lime),var(--cyan));box-shadow:0 0 12px rgba(201,247,61,.6);
+}
+
+.cur-dot,.cur-ring{position:fixed;left:0;top:0;pointer-events:none;z-index:9999;border-radius:50%;display:none}
+.fx .cur-dot,.fx .cur-ring{display:block}
+.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+.cur-ring{
+  width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid rgba(201,247,61,.55);
+  /* taille fixe : le cercle ne grossit, ne rétrécit et ne s'étire jamais */
+  transition:background .2s,border-color .2s,box-shadow .2s,opacity .2s;
+}
+.cur-ring.hot{background:rgba(201,247,61,.1);border-color:var(--lime);box-shadow:0 0 14px rgba(201,247,61,.35)}
+.cur-ring.down{background:rgba(201,247,61,.22)}
+.cur-ring.off,.cur-dot.off{opacity:0}
+.fx,.fx a,.fx button,.fx .card{cursor:none}
+.fx input,.fx textarea,.fx .term{cursor:auto}
+.ripple{
+  position:fixed;pointer-events:none;z-index:9998;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;
+  border:1.5px solid var(--lime);animation:ripple .6s ease-out forwards;
+}
+@keyframes ripple{to{transform:scale(7);opacity:0}}
+.portrait .tag{
+  position:absolute;z-index:3;left:12px;bottom:16%;font:500 11px/1 var(--mono);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--lime);
+  background:rgba(5,7,10,.72);border:1px solid var(--line2);border-radius:7px;padding:7px 10px;
+}
+
+/* ---------- bandeau défilant ---------- */
+.marq{border-block:1px solid var(--line);background:var(--panel);overflow:hidden;padding:15px 0}
+.marqrow{display:flex;gap:0;width:max-content;animation:slide 44s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+.marqrow span{
+  font:500 13px/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--faint);padding:0 22px;white-space:nowrap;
+}
+.marqrow span::after{content:"◆";color:var(--lime);margin-left:22px;opacity:.55}
+
+/* ---------- grilles ---------- */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+@media(min-width:680px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.g3{grid-template-columns:repeat(3,1fr)}}
+
+.card{
+  background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:14px;padding:22px;
+  transition:border-color .22s,transform .22s cubic-bezier(.2,.7,.3,1);
+  position:relative;overflow:hidden;
+}
+.card:hover{border-color:var(--line2);transform:translateY(-3px)}
+.card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;
+  background:radial-gradient(420px 220px at var(--mx,50%) var(--my,0%),rgba(201,247,61,.09),transparent 65%);
+}
+.card:hover::after{opacity:1}
+.card p{color:var(--dim);font-size:14.5px;margin:0}
+.ico{
+  width:36px;height:36px;border-radius:9px;display:grid;place-items:center;margin-bottom:14px;
+  border:1px solid var(--line2);background:var(--void);
+}
+.ico svg{width:17px;height:17px;stroke:var(--lime);fill:none;stroke-width:1.7}
+.card:nth-child(3n+2) .ico svg{stroke:var(--cyan)}
+
+/* ---------- parcours ---------- */
+.job{
+  display:grid;gap:18px;padding:26px 0;border-top:1px solid var(--line);
+}
+@media(min-width:800px){.job{grid-template-columns:220px 1fr;gap:34px}}
+.job .meta .co{font:600 17px/1.3 var(--disp)}
+.job .meta .when{font:400 12.5px/1.5 var(--mono);color:var(--faint);margin-top:6px;letter-spacing:.04em}
+.job .meta .role{color:var(--cyan);font-size:14px;margin-top:8px}
+.job ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.job li{position:relative;padding-left:20px;color:var(--dim);font-size:15px}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:1px;background:var(--lime)}
+.job li b{color:var(--txt);font-weight:500}
+
+/* ---------- projets ---------- */
+.proj{display:flex;flex-direction:column;gap:14px}
+.proj .no{font:500 11.5px/1 var(--mono);color:var(--faint);letter-spacing:.14em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.tag{
+  font:400 11.5px/1 var(--mono);color:var(--dim);border:1px solid var(--line);
+  border-radius:6px;padding:6px 9px;background:var(--void);
+}
+
+/* ---------- arsenal ---------- */
+.ars{display:grid;gap:0;border-top:1px solid var(--line)}
+.arsrow{display:grid;gap:10px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+@media(min-width:760px){.arsrow{grid-template-columns:210px 1fr;gap:26px}}
+.arsrow .dom{font:500 12px/1.4 var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--lime)}
+.arsrow:nth-child(even) .dom{color:var(--cyan)}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+/* ---------- cartes projets cliquables ---------- */
+.proj[data-case]{cursor:pointer}
+.post{display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit}
+.post .no{font:500 11.5px/1 var(--mono);color:var(--faint);letter-spacing:.1em;text-transform:uppercase}
+.post h3{margin:0}
+.post .more{display:inline-flex;align-items:center;gap:7px;margin-top:auto;font:500 12.5px/1 var(--mono);color:var(--lime)}
+.post .more svg{transition:transform .2s}
+.post:hover .more svg{transform:translateX(4px)}
+.post:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.proj[data-case]:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.proj .more{display:inline-flex;align-items:center;gap:7px;margin-top:auto;font:500 12.5px/1 var(--mono);color:var(--lime);letter-spacing:.03em}
+.proj .more svg{transition:transform .2s}
+.proj:hover .more svg{transform:translateX(4px)}
+
+/* ---------- étude de cas ---------- */
+.case{
+  width:min(860px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid var(--line2);
+  border-radius:16px;background:linear-gradient(180deg,var(--panel2),var(--void));color:var(--txt);overflow:auto;
+}
+/* la fenêtre passe au-dessus de tout, y compris du curseur maison : on rend le curseur système */
+.fx .case,.fx .case *{cursor:auto}
+.fx .case a,.fx .case button{cursor:pointer}
+html:has(.case[open]) .cur-dot,html:has(.case[open]) .cur-ring,html:has(.case[open]) #fxc{visibility:hidden}
+.case::backdrop{background:rgba(3,5,7,.78);backdrop-filter:blur(6px)}
+.case[open]{animation:casein .28s cubic-bezier(.2,.7,.3,1)}
+@keyframes casein{from{opacity:0;transform:translateY(14px) scale(.98)}}
+.casein{position:relative;padding:clamp(22px,4vw,38px)}
+.case .no{font:500 11.5px/1 var(--mono);color:var(--faint);letter-spacing:.14em}
+.case h2{margin:10px 44px 6px 0;font-size:clamp(24px,3.4vw,34px)}
+.casectx{margin:0 0 22px;color:var(--cyan);font:500 13px/1.5 var(--mono)}
+.caseclose{
+  position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line2);background:var(--panel);color:var(--txt);cursor:pointer;transition:border-color .2s,color .2s;
+}
+.caseclose:hover{border-color:var(--lime);color:var(--lime)}
+.caseclose:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.case h4{font:500 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin:24px 0 10px}
+.case p.txt{color:var(--dim);margin:0;font-size:15px}
+.case .job ul{margin:0}
+.case .chips{margin-top:4px}
+.shot{margin:14px 0 0;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:var(--void)}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{padding:9px 12px;font:400 12px/1.4 var(--mono);color:var(--faint);border-top:1px solid var(--line)}
+
+/* schéma de principe : étapes reliées par des flèches, qui passent en colonne sur petit écran */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:4px}
+.flow .st{
+  flex:1 1 120px;min-width:110px;border:1px solid var(--line2);border-radius:10px;padding:11px 12px;background:var(--panel);
+  font:500 12.5px/1.35 var(--mono);color:var(--txt);position:relative;
+}
+.flow .st small{display:block;margin-top:5px;color:var(--faint);font-weight:400;font-size:11.5px}
+.flow .st.key{border-color:rgba(201,247,61,.55);box-shadow:0 0 22px -8px rgba(201,247,61,.55)}
+.flow .st.grp{display:flex;flex-direction:column;gap:7px;padding:9px}
+.flow .st.grp span{border:1px dashed var(--line2);border-radius:7px;padding:7px 9px}
+.flow .ar{align-self:center;color:var(--lime);font:500 16px/1 var(--mono)}
+@media(max-width:620px){
+  .flow{flex-direction:column;gap:6px}
+  .flow .st{flex:none;min-width:0}
+  .flow .ar{transform:rotate(90deg);align-self:flex-start;margin-left:18px}
+}
+.flownote{margin:8px 0 0;font:400 11.5px/1.5 var(--mono);color:var(--faint)}
+
+/* ---------- bouton de contact flottant (téléphone) ---------- */
+.fab{
+  position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:70;
+  display:none;align-items:center;gap:9px;white-space:nowrap;
+  padding:12px 18px;border-radius:999px;text-decoration:none;font:500 14px/1 var(--sans);
+  background:var(--lime);color:#05070A;box-shadow:0 10px 30px -6px rgba(0,0,0,.7),0 0 24px -6px rgba(201,247,61,.6);
+  transform:translate(-50%,140%);transition:transform .35s cubic-bezier(.2,.7,.3,1);
+}
+.fab .dot{background:#05070A;box-shadow:none;animation:none}
+.fab.show{transform:translate(-50%,0)}
+@media(max-width:760px){.fab{display:inline-flex}}
+
+.certs{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.certs li{position:relative;padding-left:18px;color:var(--dim);font-size:14px;line-height:1.55}
+.certs li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:1px;background:var(--lime)}
+.certs li b{color:var(--txt);font-weight:500}
+.minihd{font:500 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin:24px 0 10px}
+.minihd::before{content:"> ";color:var(--faint)}
+.chips > span{
+  font:400 13px/1 var(--mono);color:var(--txt);background:var(--panel2);
+  border:1px solid var(--line);border-radius:7px;padding:8px 11px;
+}
+
+/* ---------- classement ---------- */
+.rank{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+.rank h3{margin-bottom:4px}
+.rank .sub{font:400 13px/1.5 var(--mono);color:var(--faint);margin:0 0 22px}
+.track{position:relative;height:10px;border-radius:6px;background:var(--panel2);border:1px solid var(--line)}
+.track i{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,var(--lime),#8fd420);display:block}
+.pin{position:absolute;top:-7px;width:2px;height:24px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.axis{display:flex;justify-content:space-between;margin-top:11px;font:400 11.5px/1 var(--mono);color:var(--faint);font-variant-numeric:tabular-nums}
+.rank .callout{
+  margin-top:18px;font:500 13.5px/1.5 var(--mono);color:var(--txt);
+  border-left:2px solid var(--cyan);padding-left:13px;
+}
+.rank .callout b{color:var(--cyan);font-weight:500}
+.rank .minihd{margin-top:22px}
+.badge{
+  display:inline-flex;margin-bottom:14px;padding:5px 10px;border-radius:999px;border:1px solid rgba(201,247,61,.35);
+  background:rgba(201,247,61,.06);color:var(--lime);font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;
+}
+.ctfsum{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;margin-bottom:14px;
+}
+@media(min-width:760px){.ctfsum{grid-template-columns:repeat(4,1fr)}}
+.ctfsum div{background:var(--panel);padding:18px 20px}
+.ctfsum b{display:block;font:800 clamp(24px,3.2vw,32px)/1 var(--disp);letter-spacing:-.02em;color:var(--lime)}
+.ctfsum div:nth-child(even) b{color:var(--cyan)}
+.ctfsum span{display:block;margin-top:8px;font:400 11.5px/1.4 var(--mono);color:var(--faint);letter-spacing:.06em;text-transform:uppercase}
+
+/* ---------- terminal ---------- */
+.term{
+  background:#04060A;border:1px solid var(--line2);border-radius:13px;overflow:hidden;
+  box-shadow:0 26px 60px -30px rgba(0,0,0,.9);
+}
+.termbar{
+  display:flex;align-items:center;gap:8px;padding:11px 14px;
+  border-bottom:1px solid var(--line);background:var(--panel);
+}
+.termbar i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.termbar i:nth-child(1){background:#FF5F57}.termbar i:nth-child(2){background:#FEBC2E}.termbar i:nth-child(3){background:#28C840}
+.termbar span{font:400 12px/1 var(--mono);color:var(--faint);margin-left:8px}
+.termout{
+  padding:16px;height:330px;overflow-y:auto;font:400 13.2px/1.72 var(--mono);
+  white-space:pre-wrap;word-break:break-word;scrollbar-width:thin;
+}
+.termout .p{color:var(--lime)}
+.termout .c{color:var(--cyan)}
+.termout .d{color:var(--faint)}
+.termout .w{color:var(--amber)}
+.terminput{display:flex;align-items:center;gap:9px;border-top:1px solid var(--line);padding:11px 16px;background:#06090D}
+.terminput label{font:500 13.2px/1 var(--mono);color:var(--lime);white-space:nowrap}
+.terminput input{
+  flex:1;background:transparent;border:0;outline:0;color:var(--txt);
+  font:400 13.2px/1.5 var(--mono);min-width:0;
+}
+.hintbar{font:400 12px/1.6 var(--mono);color:var(--faint);margin-top:12px}
+.hintbar b{color:var(--dim);font-weight:400}
+
+/* ---------- contact ---------- */
+.contact{display:grid;gap:14px}
+@media(min-width:760px){.contact{grid-template-columns:1.25fr .75fr}}
+.copyrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:6px}
+.mailv{font:500 15px/1 var(--mono);color:var(--lime);word-break:break-all}
+.needs{font:400 13px/1.6 var(--mono);color:var(--faint);margin-top:14px}
+.btn-li{background:#0A66C2;color:#fff;font-weight:500}
+.btn-li:hover{box-shadow:0 0 28px -4px rgba(10,102,194,.75)}
+.btn-ico{padding:12px 14px}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--faint);font:400 12.5px/1.8 var(--mono)}
+.footin{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+
+/* ---------- bascule de langue ---------- */
+html:not([data-ui="en"]) [data-l="en"]{display:none !important}
+html[data-ui="en"] [data-l="fr"]{display:none !important}
+
+/* ---------- apparition au défilement (jamais invisible) ---------- */
+@media(prefers-reduced-motion:no-preference){
+  .rv{opacity:.5;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .marqrow{animation:none}.dot{animation:none}.caret{animation:none}
+}
+</style>
+<style>
+/* Reprend ce que la plateforme d'artefacts injectait toute seule.
+   En hebergement classique, il faut le declarer ici. */
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+[hidden]{display:none !important}
+
+/* ---------- téléphone et tablette ---------- */
+.burger{
+  display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:var(--panel);
+  cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;
+}
+.burger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--txt);transition:transform .25s,opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.burger:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+@media(max-width:899px){
+  .burger{display:flex}
+  .navlinks+.navtools{margin-left:auto}   /* les liens sont masqués : les outils reviennent à droite */
+}
+/* sur petit téléphone, le bouton du haut laisse la place au menu (le bouton flottant prend le relais) */
+@media(max-width:560px){.navcta{display:none}}
+
+.mnav{
+  position:fixed;inset:62px 0 0 0;z-index:59;background:rgba(5,7,10,.97);backdrop-filter:blur(14px);
+  display:flex;flex-direction:column;justify-content:space-between;gap:24px;
+  padding:18px 20px calc(24px + env(safe-area-inset-bottom,0px));overflow-y:auto;
+  animation:mnavin .25s cubic-bezier(.2,.7,.3,1);
+}
+@keyframes mnavin{from{opacity:0;transform:translateY(-8px)}}
+.mnavlinks{display:flex;flex-direction:column}
+.mnavlinks a{
+  display:flex;align-items:baseline;gap:14px;min-height:52px;padding:12px 4px;border-bottom:1px solid var(--line);
+  color:var(--txt);text-decoration:none;font:800 24px/1.1 var(--disp);letter-spacing:-.02em;
+}
+.mnavlinks a i{font:500 11.5px/1 var(--mono);font-style:normal;color:var(--lime);letter-spacing:.08em}
+.mnavlinks a:active{color:var(--lime)}
+.mnavcta{display:grid;gap:10px}
+.mnavcta .btn{justify-content:center;min-height:48px}
+html.menu-open,html.menu-open body{overflow:hidden}
+html.menu-open .fab{display:none}
+
+/* cibles tactiles d'au moins 44 px sur écran tactile */
+@media(pointer:coarse){
+  .btn,.btn-s{min-height:44px}
+  .langsw button{min-height:40px;min-width:44px}
+  .brand{min-height:44px}
+  .fab{min-height:48px}
+  .copyrow .btn{min-width:64px}
+  .terminput input{min-height:40px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#top" aria-label="Marwane Ouahid">
+      <span class="sq">&gt;_</span>
+      <span>marwane<span style="color:var(--faint)">@</span>sec</span>
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#whoami"><span data-l="fr">À propos</span><span data-l="en">About</span></a>
+      <a href="#expertise"><span data-l="fr">Expertise</span><span data-l="en">Expertise</span></a>
+      <a href="#parcours"><span data-l="fr">Parcours</span><span data-l="en">Experience</span></a>
+      <a href="#projets"><span data-l="fr">Projets</span><span data-l="en">Projects</span></a>
+      <a href="#arsenal">Arsenal</a>
+      <a href="#ctf">CTF</a>
+      <a href="#articles">Articles</a>
+    </nav>
+    <div class="navtools">
+      <div class="langsw" role="group" aria-label="Langue / Language">
+        <button type="button" id="btn-fr" data-set="fr" aria-pressed="true">FR</button>
+        <button type="button" id="btn-en" data-set="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-p btn-s navcta" href="#contact"><span data-l="fr">Me contacter</span><span data-l="en">Get in touch</span></a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="mnav" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- menu plein écran pour téléphone et tablette (sous 900 px) -->
+<div class="mnav" id="mnav" hidden>
+  <nav class="mnavlinks" aria-label="Menu">
+    <a href="#whoami"><i>01</i><span data-l="fr">À propos</span><span data-l="en">About</span></a>
+    <a href="#expertise"><i>02</i><span data-l="fr">Expertise</span><span data-l="en">Expertise</span></a>
+    <a href="#parcours"><i>03</i><span data-l="fr">Parcours</span><span data-l="en">Experience</span></a>
+    <a href="#projets"><i>04</i><span data-l="fr">Projets</span><span data-l="en">Projects</span></a>
+    <a href="#arsenal"><i>05</i>Arsenal</a>
+    <a href="#ctf"><i>06</i>CTF</a>
+    <a href="#certifications"><i>07</i><span data-l="fr">Certifications</span><span data-l="en">Certifications</span></a>
+    <a href="#articles"><i>08</i>Articles</a>
+    <a href="#contact"><i>09</i>Contact</a>
+  </nav>
+  <div class="mnavcta">
+    <a class="btn btn-p" href="mailto:ma.ouahid@mundiapolis.ma?subject=Stage%20PFE%20%E2%80%94%20Marwane%20Ouahid"><span data-l="fr">M'écrire</span><span data-l="en">Email me</span></a>
+    <a class="btn btn-g" id="cv-menu" href="CV_Marwane_OUAHID_FR.pdf" target="_blank" rel="noopener"><span data-l="fr">Ouvrir le CV</span><span data-l="en">Open my CV</span></a>
+    <a class="btn btn-li" href="https://www.linkedin.com/in/marwane-ouahid-0ab745309" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap heroin">
+    <div>
+      <span class="chip"><span class="dot"></span>
+        <span data-l="fr">Disponible · stage PFE · févr → juil 2027</span>
+        <span data-l="en">Available · final-year internship · Feb → Jul 2027</span>
+      </span>
+      <h1 class="name">Marwane<br><span>Ouahid</span></h1>
+      <p class="roleline"><span id="typed"></span><span class="caret">&nbsp;</span></p>
+      <p class="pitch" data-l="fr">Je cherche ce qui ne va pas dans une infrastructure avant que quelqu'un d'autre ne le trouve. Zeek sur un serveur SMB sensible, Greenbone sur tout un parc, des tests d'intrusion qui ont fini dans les exigences d'un audit Cisco : c'étaient mes quatre mois chez FedEx.</p>
+      <p class="pitch" data-l="en">I look for what is wrong in an infrastructure before someone else finds it. Zeek on a sensitive SMB server, Greenbone across a whole estate, penetration tests that ended up in the requirements of a Cisco audit: that was my four months at FedEx.</p>
+      <div class="cta">
+        <a class="btn btn-p" href="#projets">
+          <span data-l="fr">Voir mes projets</span><span data-l="en">See my projects</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-g" id="cv-hero" href="CV_Marwane_OUAHID_FR.pdf" target="_blank" rel="noopener">
+          <span data-l="fr">Ouvrir le CV</span><span data-l="en">Open my CV</span>
+        </a>
+        <a class="btn btn-g btn-ico" href="https://www.linkedin.com/in/marwane-ouahid-0ab745309" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="portrait">
+      <canvas id="flag" role="img" aria-label="Drapeau du Maroc"></canvas>
+      <img src="portrait.png" width="880" height="1100" alt="Marwane Ouahid">
+      <span class="tag">casablanca, MA</span>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="v">TOP 5<span style="font-size:.6em">%</span></div>
+        <div class="k"><span data-l="fr">CTF national DGSSI<br>53ᵉ / 1 076+ équipes</span><span data-l="en">DGSSI national CTF<br>53rd / 1,076+ teams</span></div>
+      </div>
+      <div class="stat">
+        <div class="v">2</div>
+        <div class="k"><span data-l="fr">stages en sécurité<br>et réseau</span><span data-l="en">security and network<br>internships</span></div>
+      </div>
+      <div class="stat">
+        <div class="v">8</div>
+        <div class="k"><span data-l="fr">certifications<br>ISO 27001 · ITIL · AWS</span><span data-l="en">certifications<br>ISO 27001 · ITIL · AWS</span></div>
+      </div>
+      <div class="stat">
+        <div class="v">4</div>
+        <div class="k"><span data-l="fr">langues<br>arabe · français · anglais C1 · chinois</span><span data-l="en">languages<br>Arabic · French · English C1 · Chinese</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div class="marqrow" id="marq"></div>
+</div>
+
+<!-- ============================ WHOAMI ============================ -->
+<section class="sec" id="whoami">
+  <div class="wrap">
+    <div class="eyebrow">// 01 <b>—</b> whoami</div>
+    <div class="grid g2" style="gap:34px;align-items:start">
+      <div class="rv">
+        <h2 data-l="fr">La détection d'abord, la preuve ensuite.</h2>
+        <h2 data-l="en">Detection first, proof right after.</h2>
+        <p class="lede" data-l="fr">Dernière année de cycle ingénieur à l'Université Mundiapolis, spécialité sécurité et gestion des risques, après deux ans de classes préparatoires. En parallèle, un double diplôme en Big Data au Yiwu Industrial &amp; Commercial College, en Chine.</p>
+        <p class="lede" data-l="en">Final year of an engineering degree at Université Mundiapolis, majoring in security and risk management, after two years of preparatory classes. Alongside it, a double degree in Big Data at Yiwu Industrial &amp; Commercial College in China.</p>
+        <p class="lede" style="margin-top:16px" data-l="fr">Ce qui m'intéresse, c'est le moment où on comprend comment quelqu'un est entré : la détection, la chasse, la réponse. Et le travail moins spectaculaire qui vient juste après — écrire la règle, corriger la faille, vérifier qu'elle est vraiment fermée.</p>
+        <p class="lede" style="margin-top:16px" data-l="en">What interests me is the moment you work out how someone got in: detection, hunting, response. And the less spectacular work that comes right after — writing the rule, fixing the hole, checking it is really closed.</p>
+        <p class="lede" style="margin-top:16px;color:var(--txt)" data-l="fr">Je cherche un stage de fin d'études de six mois, du 2 février au 31 juillet 2027. Convention disponible.</p>
+        <p class="lede" style="margin-top:16px;color:var(--txt)" data-l="en">I am looking for a six-month final-year internship, 2 February to 31 July 2027. Internship agreement available.</p>
+        <div class="minihd" data-l="fr">postes visés</div><div class="minihd" data-l="en">roles i'm targeting</div>
+        <div class="chips">
+          <span data-l="fr">Analyste SOC / Blue Team</span><span data-l="en">SOC analyst / Blue Team</span>
+          <span data-l="fr">Ingénieur sécurité réseau</span><span data-l="en">Network security engineer</span>
+          <span data-l="fr">Gestion des vulnérabilités</span><span data-l="en">Vulnerability management</span>
+          <span data-l="fr">Pentest interne</span><span data-l="en">Internal pentesting</span>
+          <span data-l="fr">GRC · ISO/IEC 27001</span><span data-l="en">GRC · ISO/IEC 27001</span>
+          <span data-l="fr">Sécurité cloud</span><span data-l="en">Cloud security</span>
+        </div>
+        <div class="minihd" data-l="fr">ce que j'apporte à une équipe</div><div class="minihd" data-l="en">what i bring to a team</div>
+        <div class="chips">
+          <span data-l="fr">Esprit d'analyse</span><span data-l="en">Analytical thinking</span>
+          <span data-l="fr">Résolution de problèmes</span><span data-l="en">Problem solving</span>
+          <span data-l="fr">Rigueur</span><span data-l="en">Attention to detail</span>
+          <span data-l="fr">Travail en équipe</span><span data-l="en">Teamwork</span>
+          <span data-l="fr">Communication</span><span data-l="en">Communication</span>
+          <span data-l="fr">Autonomie</span><span data-l="en">Autonomy</span>
+        </div>
+      </div>
+      <div class="rv">
+        <div class="term">
+          <div class="termbar"><i></i><i></i><i></i><span>marwane@sec — bash</span></div>
+          <div class="termout" id="termout" aria-live="polite"></div>
+          <form class="terminput" id="termform" autocomplete="off">
+            <label for="termin">marwane@sec:~$</label>
+            <input id="termin" name="termin" type="text" spellcheck="false" aria-label="Terminal">
+          </form>
+        </div>
+        <p class="hintbar">
+          <span data-l="fr">Essaie <b>help</b>, <b>skills</b>, <b>experience</b>, <b>contact</b>. Le terminal répond vraiment.</span>
+          <span data-l="en">Try <b>help</b>, <b>skills</b>, <b>experience</b>, <b>contact</b>. The terminal really answers.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ EXPERTISE ============================ -->
+<section class="sec" id="expertise">
+  <div class="wrap">
+    <div class="eyebrow">// 02 <b>—</b> <span data-l="fr">ce que je sais faire</span><span data-l="en">what i do</span></div>
+    <h2 class="rv" data-l="fr">Six terrains, une seule logique :<br>voir, comprendre, refermer.</h2>
+    <h2 class="rv" data-l="en">Six areas, one logic:<br>see it, understand it, close it.</h2>
+    <p class="lede rv" style="margin-bottom:30px" data-l="fr">Tout ce qui suit, je l'ai pratiqué en stage ou monté moi-même en laboratoire. Rien n'est là parce que ça fait bien sur un CV.</p>
+    <p class="lede rv" style="margin-bottom:30px" data-l="en">Everything below I have either practised on an internship or built myself in a lab. Nothing is here because it looks good on a CV.</p>
+
+    <div class="grid g3">
+      <article class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg></div>
+        <h3 data-l="fr">Détection &amp; SOC</h3><h3 data-l="en">Detection &amp; SOC</h3>
+        <p data-l="fr">Zeek sur un serveur SMB qui portait des données sensibles, Zabbix sur toute l'infrastructure, corrélation de logs et cas d'usage alignés MITRE ATT&amp;CK.</p>
+        <p data-l="en">Zeek on an SMB server carrying sensitive data, Zabbix across the infrastructure, log correlation and detection use cases mapped to MITRE ATT&amp;CK.</p>
+      </article>
+      <article class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="2.4"/></svg></div>
+        <h3 data-l="fr">Sécurité réseau</h3><h3 data-l="en">Network security</h3>
+        <p data-l="fr">FortiGate en production, OPNsense monté de zéro avec DMZ publique, DMZ privée et LAN client. Segmentation, règles de filtrage, VLAN et VPN.</p>
+        <p data-l="en">FortiGate in production, OPNsense built from scratch with a public DMZ, a private DMZ and a client LAN. Segmentation, filtering rules, VLANs and VPNs.</p>
+      </article>
+      <article class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.2 8 9 4.6-.8 8-4.6 8-9V6l-8-3Z"/><path d="M9.5 12.2 11.3 14l3.4-3.6"/></svg></div>
+        <h3 data-l="fr">Gestion des vulnérabilités</h3><h3 data-l="en">Vulnerability management</h3>
+        <p data-l="fr">Greenbone / OpenVAS sur un parc réel, lecture des scores CVSS, tri de ce qui est exploitable et de ce qui ne l'est pas, puis plan de remédiation.</p>
+        <p data-l="en">Greenbone / OpenVAS across a real estate, reading CVSS scores, sorting what is exploitable from what is not, then a remediation plan.</p>
+      </article>
+      <article class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M13.5 5 10.5 19"/></svg></div>
+        <h3 data-l="fr">Sécurité offensive</h3><h3 data-l="en">Offensive security</h3>
+        <p data-l="fr">Tests d'intrusion internes chez FedEx : valider qu'une faille annoncée est réellement exploitable, avec Kali, Nmap et Metasploit. CTF en forensic et Active Directory.</p>
+        <p data-l="en">Internal penetration tests at FedEx: proving that a reported flaw is genuinely exploitable, with Kali, Nmap and Metasploit. CTF work in forensics and Active Directory.</p>
+      </article>
+      <article class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
+        <h3 data-l="fr">Gouvernance &amp; conformité</h3><h3 data-l="en">Governance &amp; compliance</h3>
+        <p data-l="fr">ISO/IEC 27001 : délimiter le contexte, apprécier les risques, les traiter, formaliser la validation. ITIL 4 pour la partie gestion des services.</p>
+        <p data-l="en">ISO/IEC 27001: scoping the context, assessing risks, treating them, formalising acceptance. ITIL 4 for the service management side.</p>
+      </article>
+      <article class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.5-7.97 5.5 5.5 0 0 1 10.6-1.4A3.8 3.8 0 0 1 18 18H7Z"/></svg></div>
+        <h3 data-l="fr">Cloud &amp; virtualisation</h3><h3 data-l="en">Cloud &amp; virtualisation</h3>
+        <p data-l="fr">AWS (EC2, S3, IAM, sécurité de l'infrastructure), VMware pour les laboratoires, Docker, et Veeam pour la sauvegarde et la réplication.</p>
+        <p data-l="en">AWS (EC2, S3, IAM, infrastructure security), VMware for labs, Docker, and Veeam for backup and replication.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ PARCOURS ============================ -->
+<section class="sec" id="parcours">
+  <div class="wrap">
+    <div class="eyebrow">// 03 <b>—</b> <span data-l="fr">parcours</span><span data-l="en">experience</span></div>
+    <h2 class="rv" data-l="fr">Deux stages, deux échelles.</h2>
+    <h2 class="rv" data-l="en">Two internships, two scales.</h2>    <p class="lede rv" style="margin-bottom:26px" data-l="fr">Le premier pour regarder tourner une infrastructure industrielle. Le second pour la mettre à l'épreuve.</p>
+    <p class="lede rv" style="margin-bottom:26px" data-l="en">The first to watch an industrial infrastructure run. The second to put one to the test.</p>
+
+    <div class="job rv">
+      <div class="meta">
+        <div class="co">FedEx</div>
+        <div class="when" data-l="fr">février – juin 2026</div>
+        <div class="when" data-l="en">February – June 2026</div>
+        <div class="role" data-l="fr">Stage réseau &amp; cybersécurité</div>
+        <div class="role" data-l="en">Network &amp; cybersecurity intern</div>
+      </div>
+      <ul data-l="fr">
+        <li>Déploiement de <b>Zeek</b> pour superviser un serveur SMB hébergeant des données sensibles et tracer les activités utilisateurs.</li>
+        <li>Mise en place de <b>Zabbix</b> sur l'infrastructure réseau : alertes, seuils et tableaux de bord.</li>
+        <li>Évaluation des vulnérabilités avec <b>Greenbone (OpenVAS)</b> et analyse des scores <b>CVSS</b> pour mesurer la posture de sécurité des systèmes.</li>
+        <li>Tests de pénétration internes et validation de l'exploitabilité réelle des failles identifiées.</li>
+        <li>Recommandations et actions correctives, en contribution aux exigences d'un <b>audit de sécurité Cisco</b>.</li>
+      </ul>
+      <ul data-l="en">
+        <li>Deployed <b>Zeek</b> to monitor an SMB server holding sensitive data and trace user activity.</li>
+        <li>Set up <b>Zabbix</b> across the network infrastructure: alerts, thresholds and dashboards.</li>
+        <li>Assessed vulnerabilities with <b>Greenbone (OpenVAS)</b> and analysed <b>CVSS</b> scores to measure the systems' security posture.</li>
+        <li>Ran internal penetration tests and validated the real exploitability of the findings.</li>
+        <li>Produced remediation recommendations, contributing to the requirements of a <b>Cisco security audit</b>.</li>
+      </ul>
+    </div>
+
+    <div class="job rv">
+      <div class="meta">
+        <div class="co">Compagnie Industrielle des Fibres</div>
+        <div class="when">juillet — août 2024</div>
+        <div class="role" data-l="fr">Stage d'observation · réseau et systèmes</div>
+        <div class="role" data-l="en">Observation internship · network and systems</div>
+      </div>
+      <ul data-l="fr">
+        <li>Exploitation d'une infrastructure industrielle : supervision <b>Zabbix</b>, pare-feu <b>FortiGate</b>, <b>Active Directory</b>, services DNS, DHCP, VLAN et VPN.</li>
+        <li>Virtualisation <b>VMware</b>, sauvegarde et réplication <b>Veeam</b>.</li>
+        <li>Premiers travaux offensifs encadrés : Kali Linux, Nmap, Metasploit.</li>
+      </ul>
+      <ul data-l="en">
+        <li>Operations of an industrial infrastructure: <b>Zabbix</b> monitoring, <b>FortiGate</b> firewall, <b>Active Directory</b>, DNS, DHCP, VLAN and VPN services.</li>
+        <li><b>VMware</b> virtualisation, <b>Veeam</b> backup and replication.</li>
+        <li>First supervised offensive work: Kali Linux, Nmap, Metasploit.</li>
+      </ul>
+    </div>
+
+    <h3 class="rv" style="margin-top:44px;margin-bottom:6px" data-l="fr">Formation</h3>
+    <h3 class="rv" style="margin-top:44px;margin-bottom:6px" data-l="en">Education</h3>
+
+    <div class="job rv">
+      <div class="meta">
+        <div class="co">Université Mundiapolis</div>
+        <div class="when" data-l="fr">2022 – aujourd'hui</div>
+        <div class="when" data-l="en">2022 – present</div>
+        <div class="role" data-l="fr">Cycle ingénieur · Bac+5</div>
+        <div class="role" data-l="en">Engineering degree · 5 years</div>
+      </div>
+      <ul data-l="fr">
+        <li>Cycle ingénieur, spécialité <b>Sécurité &amp; Gestion des Risques</b> — dernière année en 2026-2027.</li>
+        <li>Deux ans de <b>classes préparatoires</b> intégrées avant le cycle ingénieur.</li>
+        <li>Projets académiques : <b>SIEM en cloud</b>, pare-feu <b>OPNsense</b> avec DMZ, <b>NAC PacketFence / 802.1X</b>.</li>
+        <li>Fondateur du <b>GenTech Club</b> (robotique, cybersécurité &amp; IT) et du <b>Legends Club</b> (humanitaire).</li>
+      </ul>
+      <ul data-l="en">
+        <li>Engineering degree majoring in <b>Security &amp; Risk Management</b> — final year in 2026-2027.</li>
+        <li>Two years of integrated <b>preparatory classes</b> before the engineering cycle.</li>
+        <li>Academic projects: <b>cloud SIEM</b>, <b>OPNsense</b> firewall with DMZs, <b>PacketFence / 802.1X NAC</b>.</li>
+        <li>Founder of the <b>GenTech Club</b> (robotics, cybersecurity &amp; IT) and the <b>Legends Club</b> (humanitarian).</li>
+      </ul>
+    </div>
+
+    <div class="job rv">
+      <div class="meta">
+        <div class="co">Yiwu Industrial &amp; Commercial College</div>
+        <div class="when" data-l="fr">2023 – aujourd'hui · Chine</div>
+        <div class="when" data-l="en">2023 – present · China</div>
+        <div class="role" data-l="fr">Double diplôme · Big Data</div>
+        <div class="role" data-l="en">Double degree · Big Data</div>
+      </div>
+      <ul data-l="fr">
+        <li>Programme de <b>double diplôme en Big Data</b>, en parallèle du cycle ingénieur.</li>
+        <li>Programme d'échange académique, et programme d'échange enseignants-étudiants de l'<b>Institut de la Route de la Soie de Yiwu</b>.</li>
+      </ul>
+      <ul data-l="en">
+        <li><b>Double degree in Big Data</b>, alongside the engineering degree.</li>
+        <li>Academic exchange programme, and the <b>Yiwu Silk Road Institute</b> teacher and student programme.</li>
+      </ul>
+    </div>
+
+    <div class="job rv">
+      <div class="meta">
+        <div class="co">Bab Al Andalous</div>
+        <div class="when">2022</div>
+        <div class="role" data-l="fr">Baccalauréat international</div>
+        <div class="role" data-l="en">International Baccalaureate</div>
+      </div>
+      <ul data-l="fr">
+        <li>Baccalauréat international, option <b>Sciences Physiques</b>.</li>
+      </ul>
+      <ul data-l="en">
+        <li>International Baccalaureate, <b>Physical Sciences</b> track.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ PROJETS ============================ -->
+<section class="sec" id="projets">
+  <div class="wrap">
+    <div class="eyebrow">// 04 <b>—</b> <span data-l="fr">projets</span><span data-l="en">projects</span></div>
+    <h2 class="rv" data-l="fr">Six infrastructures montées de zéro.</h2>
+    <h2 class="rv" data-l="en">Six infrastructures built from scratch.</h2>
+    <p class="lede rv" style="margin-bottom:30px" data-l="fr">Pas des tutoriels suivis : des architectures posées, cassées, corrigées.</p>
+    <p class="lede rv" style="margin-bottom:30px" data-l="en">Not tutorials followed: architectures set up, broken, and fixed.</p>
+
+    <div class="grid g3">
+      <article class="card proj rv" data-case="siem" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="no">P·01</div>
+        <h3 data-l="fr">Plateforme SIEM en cloud</h3><h3 data-l="en">Cloud SIEM platform</h3>
+        <p data-l="fr">Agrégation et corrélation de logs pour faire remonter les anomalies. Cas d'usage de détection alignés sur MITRE ATT&amp;CK et procédure de réponse à incident derrière.</p>
+        <p data-l="en">Log aggregation and correlation to surface anomalies. Detection use cases mapped to MITRE ATT&amp;CK, with an incident response procedure behind them.</p>
+        <div class="tags"><span class="tag">SIEM</span><span class="tag">MITRE ATT&amp;CK</span><span class="tag">Cloud</span><span class="tag">IR</span></div>
+        <span class="more"><span data-l="fr">Voir l'étude de cas</span><span data-l="en">Read the case study</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card proj rv" data-case="opnsense" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="no">P·02</div>
+        <h3 data-l="fr">Pare-feu et segmentation OPNsense</h3><h3 data-l="en">OPNsense firewall and segmentation</h3>
+        <p data-l="fr">Architecture virtualisée de quatre machines, OPNsense en pare-feu central, trois zones — DMZ publique, DMZ privée, LAN client — et le filtrage des flux entre elles.</p>
+        <p data-l="en">A four-machine virtualised architecture, OPNsense as the central firewall, three zones — public DMZ, private DMZ, client LAN — and the traffic filtering between them.</p>
+        <div class="tags"><span class="tag">OPNsense</span><span class="tag">DMZ</span><span class="tag">VLAN</span><span class="tag">VMware</span></div>
+        <span class="more"><span data-l="fr">Voir l'étude de cas</span><span data-l="en">Read the case study</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card proj rv" data-case="packetfence" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="no">P·03</div>
+        <h3 data-l="fr">Contrôle d'accès réseau PacketFence</h3><h3 data-l="en">PacketFence network access control</h3>
+        <p data-l="fr">NAC avec authentification 802.1X, adossé à un serveur RADIUS et à Active Directory. Les accès des utilisateurs et des machines sont accordés dynamiquement.</p>
+        <p data-l="en">NAC with 802.1X authentication, backed by a RADIUS server and Active Directory. User and machine access is granted dynamically.</p>
+        <div class="tags"><span class="tag">PacketFence</span><span class="tag">802.1X</span><span class="tag">RADIUS</span><span class="tag">AD</span></div>
+        <span class="more"><span data-l="fr">Voir l'étude de cas</span><span data-l="en">Read the case study</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card proj rv" data-case="zeek" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="no">P·04</div>
+        <h3 data-l="fr">Supervision réseau avec Zeek</h3><h3 data-l="en">Network monitoring with Zeek</h3>
+        <p data-l="fr">Zeek sur port miroir pour tracer chaque accès à un serveur SMB sensible, logs centralisés dans Elasticsearch et Kibana pour un audit Cisco.</p>
+        <p data-l="en">Zeek on a port mirror to trace every access to a sensitive SMB server, logs centralised in Elasticsearch and Kibana for a Cisco audit.</p>
+        <div class="tags"><span class="tag">Zeek</span><span class="tag">SMB</span><span class="tag">SPAN</span><span class="tag">ELK</span></div>
+        <span class="more"><span data-l="fr">Voir l'étude de cas</span><span data-l="en">Read the case study</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card proj rv" data-case="zabbix" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="no">P·05</div>
+        <h3 data-l="fr">Monitoring d'infrastructure Zabbix</h3><h3 data-l="en">Zabbix infrastructure monitoring</h3>
+        <p data-l="fr">Zabbix déployé pour superviser l'infrastructure réseau : configuration des alertes et des tableaux de bord.</p>
+        <p data-l="en">Zabbix deployed to monitor the network infrastructure: alerts and dashboards configured.</p>
+        <div class="tags"><span class="tag">Zabbix</span><span class="tag">Alerting</span><span class="tag">Dashboards</span><span class="tag">Monitoring</span></div>
+        <span class="more"><span data-l="fr">Voir l'étude de cas</span><span data-l="en">Read the case study</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </article>
+      <article class="card proj rv" data-case="greenbone" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="no">P·06</div>
+        <h3 data-l="fr">Gestion des vulnérabilités Greenbone</h3><h3 data-l="en">Greenbone vulnerability management</h3>
+        <p data-l="fr">Évaluation des vulnérabilités avec Greenbone (OpenVAS), analyse des scores CVSS, puis recommandations et actions correctives.</p>
+        <p data-l="en">Vulnerability assessment with Greenbone (OpenVAS), CVSS score analysis, then remediation recommendations.</p>
+        <div class="tags"><span class="tag">Greenbone</span><span class="tag">OpenVAS</span><span class="tag">CVSS</span><span class="tag">CVE</span></div>
+        <span class="more"><span data-l="fr">Voir l'étude de cas</span><span data-l="en">Read the case study</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ ARSENAL ============================ -->
+<section class="sec" id="arsenal">
+  <div class="wrap">
+    <div class="eyebrow">// 05 <b>—</b> arsenal</div>
+    <h2 class="rv" data-l="fr">Les outils, par usage réel.</h2>
+    <h2 class="rv" data-l="en">The tools, by what I actually use them for.</h2>
+    <p class="lede rv" style="margin-bottom:26px" data-l="fr">Classés par ce qu'ils servent à faire, pas par logo. Chacun a été utilisé en stage ou en laboratoire.</p>
+    <p class="lede rv" style="margin-bottom:26px" data-l="en">Grouped by what they are for, not by logo. Each one has been used on an internship or in a lab.</p>
+
+    <div class="ars rv">
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Détection &amp; supervision</span><span data-l="en">Detection &amp; monitoring</span></div>
+        <div class="chips"><span>Zeek</span><span>Zabbix</span><span>SIEM</span><span>ELK</span><span>Elasticsearch</span><span>Kibana</span><span>Filebeat</span><span data-l="fr">Port miroir (SPAN)</span><span data-l="en">Port mirroring (SPAN)</span><span data-l="fr">Corrélation de logs</span><span data-l="en">Log correlation</span><span>MITRE ATT&amp;CK</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Réseau &amp; pare-feu</span><span data-l="en">Network &amp; firewalls</span></div>
+        <div class="chips"><span>FortiGate</span><span>OPNsense</span><span>VLAN</span><span>VPN</span><span>VPN SSL</span><span>802.1X</span><span>PacketFence</span><span>DNS / DHCP</span><span>DMZ</span><span>NAC</span><span data-l="fr">Segmentation réseau</span><span data-l="en">Network segmentation</span><span data-l="fr">Règles de filtrage</span><span data-l="en">Filtering rules</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Vulnérabilités</span><span data-l="en">Vulnerabilities</span></div>
+        <div class="chips"><span>Greenbone / OpenVAS</span><span>CVSS</span><span>Nmap</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Offensif</span><span data-l="en">Offensive</span></div>
+        <div class="chips"><span data-l="fr">Tests d'intrusion internes</span><span data-l="en">Internal penetration testing</span><span>Kali Linux</span><span>Nmap</span><span>Metasploit</span><span data-l="fr">Active Directory offensif</span><span data-l="en">Offensive Active Directory</span><span>CTF</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Identités &amp; accès</span><span data-l="en">Identity &amp; access</span></div>
+        <div class="chips"><span>Active Directory</span><span>RADIUS</span><span>AWS IAM</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Cloud &amp; systèmes</span><span data-l="en">Cloud &amp; systems</span></div>
+        <div class="chips"><span>AWS</span><span>EC2</span><span>S3</span><span>VMware</span><span>Docker</span><span>Veeam Backup &amp; Replication</span><span>Windows Server</span><span>Ubuntu</span><span>Huawei Cloud</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Gouvernance &amp; risques</span><span data-l="en">Governance &amp; risk</span></div>
+        <div class="chips"><span>ISO/IEC 27001</span><span data-l="fr">Appréciation des risques</span><span data-l="en">Risk assessment</span><span data-l="fr">Traitement des risques</span><span data-l="en">Risk treatment</span><span>ITIL 4</span><span data-l="fr">Audit de sécurité</span><span data-l="en">Security audit</span><span data-l="fr">Plan de remédiation</span><span data-l="en">Remediation plan</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Réponse &amp; investigation</span><span data-l="en">Response &amp; investigation</span></div>
+        <div class="chips"><span data-l="fr">Détection des menaces</span><span data-l="en">Threat detection</span><span data-l="fr">Réponse aux incidents</span><span data-l="en">Incident response</span><span data-l="fr">Forensic numérique</span><span data-l="en">Digital forensics</span><span data-l="fr">Traçabilité des accès</span><span data-l="en">Access auditing</span><span data-l="fr">Anomalies DNS (DGA, C2)</span><span data-l="en">DNS anomalies (DGA, C2)</span><span data-l="fr">Isolement de poste</span><span data-l="en">Host isolation</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Data &amp; IA</span><span data-l="en">Data &amp; AI</span></div>
+        <div class="chips"><span>Big Data</span><span>Machine learning</span><span>Deep learning</span><span data-l="fr">Sécurité de l'IA (CTF)</span><span data-l="en">AI security (CTF)</span></div>
+      </div>
+      <div class="arsrow">
+        <div class="dom"><span data-l="fr">Développement</span><span data-l="en">Programming</span></div>
+        <div class="chips"><span>Python</span><span>C</span><span>C++</span><span>Java</span><span>SQL</span><span>Dart</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ CTF ============================ -->
+<section class="sec" id="ctf">
+  <div class="wrap">
+    <div class="eyebrow">// 06 <b>—</b> ctf</div>
+    <h2 class="rv" data-l="fr">Capture The Flag :<br>là où le classement est public.</h2>
+    <h2 class="rv" data-l="en">Capture The Flag:<br>where the ranking is public.</h2>
+    <p class="lede rv" style="margin-bottom:28px" data-l="fr">Un CTF ne se raconte pas, il se classe. Des épreuves réelles, un chronomètre, des centaines d'équipes en face — voilà où je suis arrivé.</p>
+    <p class="lede rv" style="margin-bottom:28px" data-l="en">A CTF is not something you describe, it is something you place in. Real challenges, a clock, hundreds of teams — here is where I landed.</p>
+
+    <div class="ctfsum rv">
+      <div><b>2</b><span data-l="fr">CTF classés</span><span data-l="en">ranked CTFs</span></div>
+      <div><b>53<sup>e</sup></b><span data-l="fr">sur 1 076+ équipes</span><span data-l="en">out of 1,076+ teams</span></div>
+      <div><b>Top 5 %</b><span data-l="fr">au niveau national</span><span data-l="en">nationwide</span></div>
+      <div><b>2<sup>e</sup></b><span data-l="fr">place · podium</span><span data-l="en">place · podium</span></div>
+    </div>
+
+    <div class="grid g2">
+      <article class="rank rv">
+        <div class="badge"><span data-l="fr">national · DGSSI</span><span data-l="en">national · DGSSI</span></div>
+        <h3 data-l="fr">Hackathon national CTF — DGSSI</h3>
+        <h3 data-l="en">DGSSI national CTF hackathon</h3>
+        <p class="sub" data-l="fr">compétition intensive d'une semaine · en équipe</p>
+        <p class="sub" data-l="en">one-week intensive competition · team event</p>
+        <div class="track"><i style="width:4.93%"></i><span class="pin" style="left:4.93%"></span></div>
+        <div class="axis"><span>1</span><span>538</span><span>1 076+</span></div>
+        <p class="callout" data-l="fr"><b>53ᵉ place</b> sur plus de 1 076 équipes — dans les 5 % de tête.</p>
+        <p class="callout" data-l="en"><b>53rd place</b> out of more than 1,076 teams — inside the top 5%.</p>
+        <div class="minihd" data-l="fr">domaines</div><div class="minihd" data-l="en">categories</div>
+        <div class="chips">
+          <span data-l="fr">Sécurité de l'IA</span><span data-l="en">AI security</span>
+          <span data-l="fr">Forensic numérique</span><span data-l="en">Digital forensics</span>
+          <span data-l="fr">Active Directory offensif</span><span data-l="en">Offensive Active Directory</span>
+        </div>
+        <div class="minihd" data-l="fr">ce que j'y ai fait</div><div class="minihd" data-l="en">what i did</div>
+        <ul class="certs" data-l="fr">
+          <li>Résolution de <b>labs</b> en sécurité de l'IA, forensic numérique et sécurité offensive Active Directory.</li>
+          <li>Scénarios réels d'<b>exploitation de systèmes</b> et de <b>techniques d'investigation</b>.</li>
+        </ul>
+        <ul class="certs" data-l="en">
+          <li>Solved hands-on <b>labs</b> in AI security, digital forensics and offensive Active Directory.</li>
+          <li>Real-world scenarios of <b>system exploitation</b> and <b>investigation techniques</b>.</li>
+        </ul>
+      </article>
+
+      <article class="rank rv">
+        <div class="badge"><span data-l="fr">universitaire · Mundiapolis</span><span data-l="en">university · Mundiapolis</span></div>
+        <h3 data-l="fr">CTF Mundiapolis</h3>
+        <h3 data-l="en">Mundiapolis CTF</h3>
+        <p class="sub" data-l="fr">compétition en équipe · sécurité offensive</p>
+        <p class="sub" data-l="en">team competition · offensive security</p>
+        <div class="track"><i style="width:13.3%"></i><span class="pin" style="left:13.3%"></span></div>
+        <div class="axis"><span>1</span><span>8</span><span>15</span></div>
+        <p class="callout" data-l="fr"><b>2ᵉ place</b> sur 15 équipes — sur le podium.</p>
+        <p class="callout" data-l="en"><b>2nd place</b> out of 15 teams — on the podium.</p>
+        <div class="minihd" data-l="fr">domaines</div><div class="minihd" data-l="en">categories</div>
+        <div class="chips">
+          <span data-l="fr">Sécurité offensive</span><span data-l="en">Offensive security</span>
+        </div>
+        <div class="minihd" data-l="fr">compétences démontrées</div><div class="minihd" data-l="en">skills shown</div>
+        <ul class="certs" data-l="fr">
+          <li><b>Sécurité offensive</b> appliquée à des épreuves chronométrées.</li>
+          <li><b>Résolution de problèmes</b> et <b>travail d'équipe sous pression</b>.</li>
+        </ul>
+        <ul class="certs" data-l="en">
+          <li><b>Offensive security</b> applied to timed challenges.</li>
+          <li><b>Problem solving</b> and <b>teamwork under pressure</b>.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ CERTIFICATIONS ============================ -->
+<section class="sec" id="certifications">
+  <div class="wrap">
+    <div class="eyebrow">// 07 <b>—</b> <span data-l="fr">certifications &amp; engagement</span><span data-l="en">certifications &amp; leadership</span></div>
+    <h2 class="rv" data-l="fr">Ce qui est validé, et ce que j'ai construit à côté.</h2>
+    <h2 class="rv" data-l="en">What is certified, and what I built on the side.</h2>
+    <div class="grid g2" style="margin-top:26px">
+      <article class="card rv">
+        <h3 data-l="fr">Certifications</h3><h3 data-l="en">Certifications</h3>
+        <ul class="certs" data-l="fr">
+          <li><b>ISO/IEC 27001</b> — délimiter le contexte, apprécier les risques, les traiter, formaliser la validation.</li>
+          <li><b>IBM — Cybersecurity</b> — sécurité des réseaux, détection des menaces, réponse aux incidents, outils de cybersécurité.</li>
+          <li><b>IBM — évaluation CompTIA Security+ &amp; CySA+</b></li>
+          <li><b>AWS Cloud</b> — concepts du cloud, EC2, S3, IAM, sécurité de l'infrastructure.</li>
+          <li><b>ITIL 4 (sensibilisation)</b> — gestion des services IT, système de valeur des services, amélioration continue.</li>
+          <li><b>Huawei Cloud</b> — certification cloud.</li>
+          <li><b>ALX — IA</b> — machine learning, deep learning et développement IA.</li>
+          <li><b>EF SET</b> — certificat d'anglais, niveau C1.</li>
+        </ul>
+        <ul class="certs" data-l="en">
+          <li><b>ISO/IEC 27001</b> — scoping the context, assessing risks, treating them, formalising acceptance.</li>
+          <li><b>IBM — Cybersecurity</b> — network security, threat detection, incident response, security tooling.</li>
+          <li><b>IBM — CompTIA Security+ &amp; CySA+ assessment</b></li>
+          <li><b>AWS Cloud</b> — cloud concepts, EC2, S3, IAM, infrastructure security.</li>
+          <li><b>ITIL 4 (awareness)</b> — IT service management, service value system, continual improvement.</li>
+          <li><b>Huawei Cloud</b> — cloud certification.</li>
+          <li><b>ALX — AI</b> — machine learning, deep learning and AI development.</li>
+          <li><b>EF SET</b> — English certificate, C1 level.</li>
+        </ul>
+      </article>
+      <article class="card rv">
+        <h3 data-l="fr">Langues</h3><h3 data-l="en">Languages</h3>
+        <div class="chips" style="margin-top:12px">
+          <span data-l="fr">Arabe — langue maternelle</span><span data-l="en">Arabic — native</span>
+          <span data-l="fr">Français — courant</span><span data-l="en">French — fluent</span>
+          <span data-l="fr">Anglais — C1</span><span data-l="en">English — C1</span>
+          <span data-l="fr">Chinois — notions</span><span data-l="en">Chinese — basic</span>
+        </div>
+        <h3 style="margin-top:22px" data-l="fr">Engagement associatif</h3><h3 style="margin-top:22px" data-l="en">Leadership</h3>
+        <ul class="certs" data-l="fr">
+          <li>Fondateur du <b>GenTech Club</b> — robotique, cybersécurité &amp; IT — à Mundiapolis.</li>
+          <li>Fondateur du <b>Legends Club</b> — club humanitaire — à Mundiapolis.</li>
+          <li>Organisation d'événements universitaires : journée d'intégration, remise des diplômes, semaine doctorale, semaine sportive, journées portes ouvertes.</li>
+          <li>Rôles : <b>coordination logistique</b>, <b>planification des activités</b>, <b>gestion d'équipe</b>.</li>
+        </ul>
+        <ul class="certs" data-l="en">
+          <li>Founder of the <b>GenTech Club</b> — robotics, cybersecurity &amp; IT — at Mundiapolis.</li>
+          <li>Founder of the <b>Legends Club</b> — humanitarian club — at Mundiapolis.</li>
+          <li>Organised university events: integration day, graduation ceremony, doctoral week, sports week, open days.</li>
+          <li>Roles: <b>logistics coordination</b>, <b>activity planning</b>, <b>team management</b>.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ ARTICLES ============================ -->
+<section class="sec" id="articles">
+  <div class="wrap">
+    <div class="eyebrow">// 08 <b>—</b> <span data-l="fr">articles</span><span data-l="en">writing</span></div>
+    <h2 class="rv" data-l="fr">Ce que j'ai appris, écrit noir sur blanc.</h2>
+    <h2 class="rv" data-l="en">What I learned, written down.</h2>
+    <p class="lede rv" style="margin-bottom:30px" data-l="fr">Des retours d'expérience détaillés : le contexte, les choix techniques, ce qui a marché et ce qui a résisté.</p>
+    <p class="lede rv" style="margin-bottom:30px" data-l="en">Detailed write-ups: the context, the technical choices, what worked and what pushed back. Written in French.</p>
+
+    <div class="grid g2">
+      <a class="card post rv" href="articles/zeek-smb.html">
+        <div class="no"><span data-l="fr">supervision réseau · 5 min</span><span data-l="en">network monitoring · 5 min · in French</span></div>
+        <h3>Superviser un serveur SMB sensible avec Zeek</h3>
+        <p data-l="fr">Port miroir, Zeek, Filebeat, Elasticsearch et Kibana pour tracer chaque accès à un serveur sensible et répondre à un audit Cisco — et un malware repéré au passage dans les requêtes DNS.</p>
+        <p data-l="en">Port mirroring, Zeek, Filebeat, Elasticsearch and Kibana to trace every access to a sensitive server for a Cisco audit — and a piece of malware caught along the way in DNS traffic.</p>
+        <div class="tags"><span class="tag">Zeek</span><span class="tag">SMB</span><span class="tag">ELK</span><span class="tag">SPAN</span><span class="tag">DNS</span></div>
+        <span class="more"><span data-l="fr">Lire l'article</span><span data-l="en">Read the article</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============================ CONTACT ============================ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">// 09 <b>—</b> contact</div>
+    <div class="contact">
+      <div class="rv">
+        <h2 data-l="fr">Six mois, de février<br>à juillet 2027.</h2>
+        <h2 data-l="en">Six months, February<br>to July 2027.</h2>
+        <p class="lede" data-l="fr">Maroc, France, Europe, Golfe — je suis mobile et la convention de stage est prête. Écris-moi, je réponds dans la journée.</p>
+        <p class="lede" data-l="en">Morocco, France, Europe, the Gulf — I am mobile and the internship agreement is ready. Write to me and you will have an answer the same day.</p>
+        <div class="copyrow">
+          <span class="mailv" id="mail">ma.ouahid@mundiapolis.ma</span>
+          <button class="btn btn-g btn-s" type="button" id="copy">
+            <span data-l="fr">Copier</span><span data-l="en">Copy</span>
+          </button>
+          <span id="copied" class="hintbar" style="margin:0;color:var(--lime)" hidden>
+            <span data-l="fr">copié</span><span data-l="en">copied</span>
+          </span>
+        </div>
+        <div class="cta" style="margin-top:18px">
+        <a class="btn btn-p" id="mailto" href="mailto:ma.ouahid@mundiapolis.ma?subject=Stage%20PFE%20%E2%80%94%20Marwane%20Ouahid">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-l="fr">M'écrire</span><span data-l="en">Email me</span>
+        </a>
+        <a class="btn btn-li" href="https://www.linkedin.com/in/marwane-ouahid-0ab745309" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.8c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.52-2.25 3.1V21H9z"/></svg>
+          <span data-l="fr">Voir mon LinkedIn</span><span data-l="en">View my LinkedIn</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        </div>
+      </div>
+      <div class="card rv">
+        <h3 data-l="fr">Le CV en PDF</h3><h3 data-l="en">The CV, as a PDF</h3>
+        <p style="margin-bottom:14px" data-l="fr">Une page, en français et en anglais.</p>
+        <p style="margin-bottom:14px" data-l="en">One page, in French and English.</p>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <a class="btn btn-p btn-s" href="CV_Marwane_OUAHID_FR.pdf" target="_blank" rel="noopener" style="justify-content:center">CV — français</a>
+          <a class="btn btn-g btn-s" href="CV_Marwane_OUAHID_EN.pdf" target="_blank" rel="noopener" style="justify-content:center">CV — english</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footin">
+    <span>© 2026 Marwane Ouahid · Casablanca, MA</span>
+    <span id="ctfhint" style="color:var(--faint)">
+      <span data-l="fr">un flag est caché sur cette page. bonne chasse.</span>
+      <span data-l="en">a flag is hidden on this page. happy hunting.</span>
+    </span>
+  </div>
+</footer>
+
+</main>
+
+<!-- étude de cas : remplie en JS depuis l'objet CASES -->
+<dialog class="case" id="case" aria-labelledby="case-title">
+  <div class="casein">
+    <button class="caseclose" type="button" id="case-close" aria-label="Fermer / Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="no" id="case-no"></div>
+    <h2 id="case-title"></h2>
+    <p class="casectx" id="case-where"></p>
+    <div id="case-body"></div>
+  </div>
+</dialog>
+
+<!-- bouton de contact flottant, téléphone uniquement -->
+<a class="fab" id="fab" href="#contact">
+  <span class="dot"></span>
+  <span data-l="fr">Dispo. févr. 2027 · Me contacter</span><span data-l="en">Available Feb 2027 · Contact me</span>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.documentElement;
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- langue : navigateur, puis choix mémorisé ---------- */
+  var LS = "mo_lang";
+  function readStore(){ try { return localStorage.getItem(LS); } catch(e){ return null; } }
+  function writeStore(v){ try { localStorage.setItem(LS, v); } catch(e){} }
+
+  function setLang(l, remember){
+    l = (l === "en") ? "en" : "fr";
+    root.setAttribute("data-ui", l);
+    root.setAttribute("lang", l);
+    document.getElementById("btn-fr").setAttribute("aria-pressed", String(l === "fr"));
+    document.getElementById("btn-en").setAttribute("aria-pressed", String(l === "en"));
+    var cv = document.getElementById("cv-hero");
+    var cvFile = (l === "en") ? "CV_Marwane_OUAHID_EN.pdf" : "CV_Marwane_OUAHID_FR.pdf";
+    if (cv) cv.href = cvFile;
+    var cvm = document.getElementById("cv-menu");
+    if (cvm) cvm.href = cvFile;
+    if (remember) writeStore(l);
+  }
+  var saved = readStore();
+  var guess = (navigator.language || "fr").toLowerCase().indexOf("fr") === 0 ? "fr" : "en";
+  setLang(saved || guess, false);
+  Array.prototype.forEach.call(document.querySelectorAll("[data-set]"), function(b){
+    b.addEventListener("click", function(){ setLang(b.dataset.set, true); });
+  });
+
+  /* ---------- menu mobile ---------- */
+  var burger = document.getElementById("burger"), mnav = document.getElementById("mnav");
+  function setMenu(open){
+    mnav.hidden = !open;
+    burger.setAttribute("aria-expanded", String(open));
+    root.classList.toggle("menu-open", open);
+  }
+  burger.addEventListener("click", function(){ setMenu(mnav.hidden); });
+  Array.prototype.forEach.call(mnav.querySelectorAll("a"), function(a){
+    a.addEventListener("click", function(){ setMenu(false); });
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && !mnav.hidden){ setMenu(false); burger.focus(); }
+  });
+  addEventListener("resize", function(){ if (innerWidth >= 900 && !mnav.hidden) setMenu(false); }, { passive: true });
+
+  /* ---------- bandeau défilant ---------- */
+  var words = ["SOC","SIEM","Détection des menaces","Incident Response","Zeek","ELK","Kibana","Zabbix",
+               "Vulnerability Management","Greenbone / OpenVAS","CVSS","Pentest interne",
+               "FortiGate","OPNsense","DMZ","VLAN","VPN","802.1X","NAC","PacketFence","RADIUS",
+               "Active Directory","Windows Server","ISO/IEC 27001","Gestion des risques","ITIL 4",
+               "AWS","AWS IAM","VMware","Docker","Veeam","Kali Linux","Nmap","Metasploit",
+               "Forensics","CTF","Python","Big Data"];
+  var marq = document.getElementById("marq");
+  var html = words.map(function(w){ return "<span>" + w + "</span>"; }).join("");
+  marq.innerHTML = html + html;
+
+  /* ---------- rôle qui s'écrit ---------- */
+  var roles = {
+    fr: ["élève-ingénieur sécurité & gestion des risques",
+         "SOC · SIEM · détection et réponse à incident",
+         "sécurité réseau · pare-feu · NAC 802.1X",
+         "gestion des vulnérabilités · CVSS · pentest",
+         "ISO/IEC 27001 · gouvernance et risques"],
+    en: ["security & risk management engineering student",
+         "SOC · SIEM · detection and incident response",
+         "network security · firewalls · 802.1X NAC",
+         "vulnerability management · CVSS · pentest",
+         "ISO/IEC 27001 · governance and risk"]
+  };
+  var typed = document.getElementById("typed");
+  if (reduce) {
+    typed.textContent = roles[root.getAttribute("data-ui")][0];
+  } else {
+    var ri = 0, ci = 0, del = false;
+    (function tick(){
+      var list = roles[root.getAttribute("data-ui")] || roles.fr;
+      var full = list[ri % list.length];
+      ci += del ? -1 : 1;
+      if (ci < 0) ci = 0;
+      if (ci > full.length) ci = full.length;
+      typed.textContent = full.slice(0, ci);
+      var wait = del ? 26 : 52;
+      if (!del && ci === full.length){ del = true; wait = 2100; }
+      else if (del && ci === 0){ del = false; ri++; wait = 380; }
+      setTimeout(tick, wait);
+    })();
+  }
+
+  /* ---------- pluie Matrix, discrète et bornée ---------- */
+  var cv = document.getElementById("rain");
+  if (cv && !reduce && innerWidth > 760) {
+    var ctx = cv.getContext("2d"), cols, drops, glyphs = "01アカサタナハマヤラワ#$%&@{}[]<>/\\|", raf;
+    function size(){
+      var r = cv.parentElement.getBoundingClientRect();
+      cv.width = r.width; cv.height = r.height;
+      cols = Math.floor(r.width / 15);
+      drops = new Array(cols);
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    function draw(){
+      ctx.fillStyle = "rgba(5,7,10,.09)";
+      ctx.fillRect(0, 0, cv.width, cv.height);
+      ctx.font = "13px 'IBM Plex Mono', monospace";
+      for (var i = 0; i < cols; i++){
+        var ch = glyphs.charAt(Math.floor(Math.random() * glyphs.length));
+        ctx.fillStyle = Math.random() > .975 ? "#35D6F5" : "#C9F73D";
+        ctx.fillText(ch, i * 15, drops[i] * 15);
+        if (drops[i] * 15 > cv.height && Math.random() > .975) drops[i] = 0;
+        drops[i]++;
+      }
+      raf = setTimeout(function(){ requestAnimationFrame(draw); }, 62);
+    }
+    size(); draw();
+    addEventListener("resize", size, { passive: true });
+    document.addEventListener("visibilitychange", function(){
+      if (document.hidden) { clearTimeout(raf); } else { draw(); }
+    });
+  }
+
+  /* ---------- lueur qui suit le curseur sur les cartes ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".card"), function(c){
+    c.addEventListener("pointermove", function(e){
+      var r = c.getBoundingClientRect();
+      c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      c.style.setProperty("--my", (e.clientY - r.top) + "px");
+    });
+  });
+
+  /* ---------- effets pilotés par le curseur (souris uniquement) ---------- */
+  var fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var hero = document.querySelector(".hero");
+  var lerp = function(a, b, t){ return a + (b - a) * t; };
+  // position visée (brute) et position lissée, en coordonnées fenêtre
+  var M = { tx: -9999, ty: -9999, x: -9999, y: -9999, vx: 0, vy: 0, seen: false, inHero: false };
+  // position lissée relative au hero, lue par le réseau de nœuds
+  var mouse = { x: -9999, y: -9999 };
+  var shocks = [];
+
+  /* barre de progression de lecture */
+  var bar = document.createElement("div");
+  bar.id = "progress";
+  document.body.appendChild(bar);
+  function progress(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = "scaleX(" + (h > 0 ? scrollY / h : 0) + ")";
+  }
+  addEventListener("scroll", progress, { passive: true });
+  progress();
+
+  /* texte qui se « déchiffre » */
+  var GL = "!<>-_\\/[]{}=+*^?#$%&@01";
+  function scramble(el, dur){
+    if (!el || el.dataset.busy) return;
+    var orig = el.dataset.orig || (el.dataset.orig = el.textContent);
+    el.dataset.busy = "1";
+    var t0 = performance.now();
+    (function step(now){
+      var p = Math.min(1, (now - t0) / (dur || 520)), out = "";
+      for (var i = 0; i < orig.length; i++){
+        var c = orig.charAt(i);
+        out += (c === " " || i / orig.length < p) ? c : GL.charAt(Math.floor(Math.random() * GL.length));
+      }
+      el.textContent = out;
+      if (p < 1) requestAnimationFrame(step);
+      else { el.textContent = orig; delete el.dataset.busy; }
+    })(t0);
+  }
+
+  /* chiffres qui défilent jusqu'à leur valeur */
+  function countUp(el){
+    var node = el.firstChild;
+    if (!node || node.nodeType !== 3) return;
+    var m = node.nodeValue.match(/^(\D*)(\d+)(.*)$/);
+    if (!m) return;
+    var end = +m[2], t0 = performance.now();
+    (function step(now){
+      var p = Math.min(1, (now - t0) / 1100), e = 1 - Math.pow(1 - p, 3);
+      node.nodeValue = m[1] + Math.round(end * e) + m[3];
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+
+  if (!reduce && "IntersectionObserver" in window) {
+    var seenOnce = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        seenOnce.unobserve(e.target);
+        if (e.target.classList.contains("v")) countUp(e.target);
+        else Array.prototype.forEach.call(e.target.querySelectorAll("[data-l]"), function(s){ scramble(s, 700); });
+      });
+    }, { threshold: .6 });
+    Array.prototype.forEach.call(document.querySelectorAll(".stat .v, .eyebrow"), function(el){ seenOnce.observe(el); });
+  }
+
+  if (fine && !reduce) {
+    root.classList.add("fx");
+
+    /* curseur : point, anneau qui suit en douceur (toujours rond), étincelles */
+    var dot = document.createElement("div"), ring = document.createElement("div");
+    dot.className = "cur-dot off"; ring.className = "cur-ring off";
+    document.body.appendChild(dot); document.body.appendChild(ring);
+    var fxc = document.createElement("canvas");
+    fxc.id = "fxc"; fxc.setAttribute("aria-hidden", "true");
+    document.body.appendChild(fxc);
+    var fctx = fxc.getContext("2d"), sparks = [], fdpr = Math.min(devicePixelRatio || 1, 2);
+    function fsize(){
+      fxc.width = innerWidth * fdpr; fxc.height = innerHeight * fdpr;
+      fctx.setTransform(fdpr, 0, 0, fdpr, 0, 0);
+    }
+    fsize();
+    addEventListener("resize", fsize, { passive: true });
+    function spark(x, y, n, speed, life){
+      for (var i = 0; i < n; i++){
+        var a = Math.random() * 6.283, s = (Math.random() * .7 + .3) * speed;
+        sparks.push({ x: x, y: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: life, max: life,
+                      c: Math.random() > .82 ? "53,214,245" : "201,247,61" });
+      }
+      if (sparks.length > 260) sparks.splice(0, sparks.length - 260);
+    }
+
+    var rx = 0, ry = 0, dx0 = 0, dy0 = 0;
+    addEventListener("pointermove", function(e){
+      M.tx = e.clientX; M.ty = e.clientY;
+      if (!M.seen){ M.seen = true; M.x = rx = dx0 = M.tx; M.y = ry = dy0 = M.ty; }
+      var t = e.target.closest ? e.target : null;
+      ring.classList.toggle("hot", !!(t && t.closest("a,button,.card,.tag,[data-set]")));
+      var txt = !!(t && t.closest("input,textarea,.term"));
+      dot.classList.toggle("off", txt); ring.classList.toggle("off", txt);
+    }, { passive: true });
+    document.addEventListener("mouseleave", function(){ dot.classList.add("off"); ring.classList.add("off"); });
+    document.addEventListener("mouseenter", function(){ if (M.seen) { dot.classList.remove("off"); ring.classList.remove("off"); } });
+    addEventListener("pointerdown", function(e){
+      ring.classList.add("down");
+      var rp = document.createElement("span");
+      rp.className = "ripple"; rp.style.left = e.clientX + "px"; rp.style.top = e.clientY + "px";
+      document.body.appendChild(rp);
+      setTimeout(function(){ rp.remove(); }, 650);
+      if (!e.target.closest("input,textarea,.term")) spark(e.clientX, e.clientY, 22, 4.2, 42);
+      var hr = hero.getBoundingClientRect();
+      if (e.clientY >= hr.top && e.clientY <= hr.bottom)
+        shocks.push({ x: e.clientX - hr.left, y: e.clientY - hr.top, r: 0 });
+    });
+    addEventListener("pointerup", function(){ ring.classList.remove("down"); });
+
+    /* navigation : les liens se déchiffrent au survol */
+    Array.prototype.forEach.call(document.querySelectorAll(".navlinks a"), function(a){
+      a.addEventListener("pointerenter", function(){
+        Array.prototype.forEach.call(a.querySelectorAll("[data-l]"), function(s){ scramble(s, 380); });
+        if (!a.querySelector("[data-l]")) scramble(a, 380);
+      });
+    });
+
+    /* boutons magnétiques */
+    Array.prototype.forEach.call(document.querySelectorAll(".btn"), function(b){
+      b.addEventListener("pointermove", function(e){
+        var r = b.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        b.style.transform = "translate(" + dx * .25 + "px," + dy * .35 + "px)";
+        b.style.setProperty("--bx", (e.clientX - r.left) + "px");
+        b.style.setProperty("--by", (e.clientY - r.top) + "px");
+      });
+      b.addEventListener("pointerleave", function(){ b.style.transform = ""; });
+    });
+
+    /* cartes : inclinaison 3D vers le curseur */
+    Array.prototype.forEach.call(document.querySelectorAll(".card"), function(c){
+      c.addEventListener("pointermove", function(e){
+        var r = c.getBoundingClientRect();
+        var nx = (e.clientX - r.left) / r.width - .5, ny = (e.clientY - r.top) / r.height - .5;
+        c.style.transform = "perspective(800px) rotateX(" + -ny * 7 + "deg) rotateY(" + nx * 9 + "deg) translateY(-4px)";
+      });
+      c.addEventListener("pointerleave", function(){ c.style.transform = ""; });
+    });
+
+    /* nom : chaque lettre réagit à la proximité du curseur */
+    var nameEl = document.querySelector(".name"), letters = [];
+    if (nameEl) {
+      nameEl.setAttribute("aria-label", nameEl.textContent.replace(/\s+/g, " ").trim());
+      (function split(el){
+        Array.prototype.slice.call(el.childNodes).forEach(function(n){
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.nodeValue.split("").forEach(function(ch){
+              var s = document.createElement("i");
+              s.className = "ch"; s.textContent = ch; s.setAttribute("aria-hidden", "true");
+              frag.appendChild(s); letters.push({ el: s, f: 0 });
+            });
+            el.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && n.tagName !== "BR") split(n);
+        });
+      })(nameEl);
+    }
+
+    var textCol = document.querySelector(".heroin > div");
+    var pimg = document.querySelector(".portrait img"), pbox = document.querySelector(".portrait");
+    var tilt = { x: 0, y: 0 };
+    hero.addEventListener("pointerenter", function(){ M.inHero = true; hero.classList.add("lit"); });
+    hero.addEventListener("pointerleave", function(){ M.inHero = false; hero.classList.remove("lit"); });
+
+    /* une seule boucle : tout est interpolé, rien ne saute */
+    (function loop(){
+      if (M.seen) {
+        var px = M.x, py = M.y;
+        M.x = lerp(M.x, M.tx, .22); M.y = lerp(M.y, M.ty, .22);
+        M.vx = M.x - px; M.vy = M.y - py;
+
+        dx0 = lerp(dx0, M.tx, .55); dy0 = lerp(dy0, M.ty, .55);
+        dot.style.transform = "translate(" + dx0 + "px," + dy0 + "px)";
+
+        rx = lerp(rx, M.tx, .14); ry = lerp(ry, M.ty, .14);
+        ring.style.transform = "translate(" + rx + "px," + ry + "px)";
+
+        var speed = Math.sqrt(M.vx * M.vx + M.vy * M.vy);
+        if (speed > 2.2 && !dot.classList.contains("off")) spark(M.x, M.y, speed > 9 ? 2 : 1, .6, 26);
+      }
+
+      // étincelles
+      fctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = sparks.length - 1; i >= 0; i--){
+        var s = sparks[i];
+        s.x += s.vx; s.y += s.vy; s.vx *= .93; s.vy = s.vy * .93 + .03; s.life--;
+        if (s.life <= 0){ sparks.splice(i, 1); continue; }
+        var k = s.life / s.max;
+        fctx.fillStyle = "rgba(" + s.c + "," + k * .9 + ")";
+        fctx.beginPath(); fctx.arc(s.x, s.y, 1.8 * k + .4, 0, 6.283); fctx.fill();
+      }
+
+      // hero : lueur, parallaxe, portrait, lettres
+      var hr = hero.getBoundingClientRect();
+      if (hr.bottom > 0 && hr.top < innerHeight) {
+        var inside = M.inHero && M.seen;
+        mouse.x = inside ? M.x - hr.left : -9999;
+        mouse.y = inside ? M.y - hr.top : -9999;
+        if (inside) {
+          hero.style.setProperty("--hx", mouse.x + "px");
+          hero.style.setProperty("--hy", mouse.y + "px");
+        }
+        var nx = inside ? M.x / innerWidth - .5 : 0, ny = inside ? M.y / innerHeight - .5 : 0;
+        tilt.x = lerp(tilt.x, nx, .08); tilt.y = lerp(tilt.y, ny, .08);
+        if (textCol) textCol.style.transform = "translate(" + tilt.x * -14 + "px," + tilt.y * -8 + "px)";
+        if (pimg) pimg.style.transform = "perspective(900px) rotateY(" + tilt.x * 12 + "deg) rotateX(" + -tilt.y * 8 + "deg) translate(" + tilt.x * 16 + "px," + tilt.y * 10 + "px)";
+        if (pbox) { pbox.style.setProperty("--px", tilt.x * -50 + "px"); pbox.style.setProperty("--py", tilt.y * -36 + "px"); }
+
+        for (var j = 0; j < letters.length; j++){
+          var L = letters[j], r = L.el.getBoundingClientRect();
+          var ddx = M.x - (r.left + r.width / 2), ddy = M.y - (r.top + r.height / 2);
+          var target = inside ? Math.max(0, 1 - Math.sqrt(ddx * ddx + ddy * ddy) / 240) : 0;
+          L.f = lerp(L.f, target, .12);
+          if (L.f < .003) { if (L.el.style.transform) { L.el.style.transform = ""; L.el.style.textShadow = ""; } continue; }
+          var e = L.f * L.f * (3 - 2 * L.f);
+          L.el.style.transform = "translateY(" + -e * 16 + "px) scale(" + (1 + e * .08) + ")";
+          L.el.style.textShadow = "0 0 " + (e * 28) + "px rgba(201,247,61," + e * .75 + ")";
+        }
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* ---------- réseau de nœuds dans le hero, relié au curseur ---------- */
+  var net = document.getElementById("net");
+  if (net && !reduce) {
+    var nctx = net.getContext("2d"), nodes = [], W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2);
+    var running = true, LINK = 150, REACH = 210, tick = 0;
+    function nsize(){
+      var r = hero.getBoundingClientRect();
+      W = r.width; H = r.height;
+      net.width = W * dpr; net.height = H * dpr;
+      nctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      // grille régulière, légèrement décalée : chaque nœud a sa place et y revient toujours
+      var cell = innerWidth > 760 ? 118 : 175;
+      var cols = Math.max(2, Math.round(W / cell)), rows = Math.max(2, Math.round(H / cell));
+      var cw = W / cols, ch = H / rows;
+      nodes = [];
+      for (var gy = 0; gy < rows; gy++){
+        for (var gx = 0; gx < cols; gx++){
+          var hx = (gx + .5 + (Math.random() - .5) * .45) * cw;
+          var hy = (gy + .5 + (Math.random() - .5) * .45) * ch;
+          nodes.push({
+            hx: hx, hy: hy, x: hx, y: hy, vx: 0, vy: 0,
+            r: Math.random() * 1.2 + .7, c: Math.random() > .88 ? "53,214,245" : "201,247,61",
+            g: 0, ph: Math.random(), w: Math.random() * 6.283
+          });
+        }
+      }
+    }
+    var nframe = 0;
+    function ndraw(){
+      if (!running) return;
+      // écran tactile : une image sur deux (30 i/s), assez pour un fond qui dérive lentement
+      if (!fine && (++nframe & 1)) { requestAnimationFrame(ndraw); return; }
+      tick++;
+      nctx.clearRect(0, 0, W, H);
+      var i, j, a, b, dx, dy, d, near = [];
+
+      // ondes de choc lancées par un clic
+      for (i = shocks.length - 1; i >= 0; i--){
+        var sh = shocks[i];
+        sh.r += 9;
+        if (sh.r > 420) { shocks.splice(i, 1); continue; }
+        nctx.strokeStyle = "rgba(201,247,61," + (1 - sh.r / 420) * .5 + ")";
+        nctx.lineWidth = 1.5;
+        nctx.beginPath(); nctx.arc(sh.x, sh.y, sh.r, 0, 6.283); nctx.stroke();
+      }
+
+      for (i = 0; i < nodes.length; i++){
+        a = nodes[i];
+        // petite dérive autour de sa place, puis ressort qui l'y ramène
+        var tx = a.hx + Math.sin(tick * .008 + a.w) * 9, ty = a.hy + Math.cos(tick * .007 + a.w * 1.3) * 7;
+        a.vx += (tx - a.x) * .012; a.vy += (ty - a.y) * .012;
+        // le curseur écarte légèrement les nœuds au lieu de les aspirer : pas d'amas
+        dx = a.x - mouse.x; dy = a.y - mouse.y; d = Math.sqrt(dx * dx + dy * dy);
+        if (d < REACH && d > 0.1){ var f = (1 - d / REACH); a.vx += dx / d * f * f * .9; a.vy += dy / d * f * f * .9; }
+        for (j = 0; j < shocks.length; j++){
+          var s = shocks[j], sx = a.x - s.x, sy = a.y - s.y, sd = Math.sqrt(sx * sx + sy * sy);
+          if (Math.abs(sd - s.r) < 14 && sd > 0.1){ a.vx += sx / sd * 1.6; a.vy += sy / sd * 1.6; a.g = 1; }
+        }
+        a.vx *= .86; a.vy *= .86;
+        a.x += a.vx; a.y += a.vy;
+        a.g *= .96;
+        dx = a.x - mouse.x; dy = a.y - mouse.y;
+        a.d = Math.sqrt(dx * dx + dy * dy);
+        if (a.d < REACH) near.push(a);
+      }
+
+      nctx.lineWidth = 1;
+      for (i = 0; i < nodes.length; i++){
+        a = nodes[i];
+        for (j = i + 1; j < nodes.length; j++){
+          b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d = dx * dx + dy * dy;
+          if (d < LINK * LINK){
+            // les liaisons proches du curseur s'illuminent
+            var boost = Math.max(0, 1 - Math.min(a.d, b.d) / REACH);
+            nctx.strokeStyle = "rgba(201,247,61," + (1 - Math.sqrt(d) / LINK) * (.13 + boost * .35) + ")";
+            nctx.beginPath(); nctx.moveTo(a.x, a.y); nctx.lineTo(b.x, b.y); nctx.stroke();
+          }
+        }
+      }
+
+      // lignes vers le curseur, avec un paquet de données qui y circule
+      for (i = 0; i < near.length; i++){
+        a = near[i];
+        var k = 1 - a.d / REACH;
+        var grad = nctx.createLinearGradient(a.x, a.y, mouse.x, mouse.y);
+        grad.addColorStop(0, "rgba(201,247,61," + k * .7 + ")");
+        grad.addColorStop(1, "rgba(53,214,245," + k * .25 + ")");
+        nctx.strokeStyle = grad;
+        nctx.beginPath(); nctx.moveTo(a.x, a.y); nctx.lineTo(mouse.x, mouse.y); nctx.stroke();
+        var t = (tick * .012 + a.ph) % 1;
+        nctx.fillStyle = "rgba(232,241,236," + k + ")";
+        nctx.beginPath(); nctx.arc(lerp(a.x, mouse.x, t), lerp(a.y, mouse.y, t), 1.3, 0, 6.283); nctx.fill();
+      }
+
+      for (i = 0; i < nodes.length; i++){
+        a = nodes[i];
+        var nk = Math.max(0, 1 - a.d / REACH), lit = Math.max(nk, a.g);
+        if (lit > .05){
+          nctx.fillStyle = "rgba(" + a.c + "," + lit * .18 + ")";
+          nctx.beginPath(); nctx.arc(a.x, a.y, a.r + 5 * lit, 0, 6.283); nctx.fill();
+        }
+        nctx.fillStyle = "rgba(" + a.c + "," + (.45 + lit * .55) + ")";
+        nctx.beginPath(); nctx.arc(a.x, a.y, a.r + lit * 1.2, 0, 6.283); nctx.fill();
+      }
+      requestAnimationFrame(ndraw);
+    }
+    nsize(); ndraw();
+    addEventListener("resize", nsize, { passive: true });
+    // ne tourne que quand le hero est visible et l'onglet actif
+    var heroVisible = true;
+    function setRun(){
+      var was = running; running = heroVisible && !document.hidden;
+      if (running && !was) ndraw();
+    }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function(es){ heroVisible = es[0].isIntersecting; setRun(); }).observe(hero);
+    }
+    document.addEventListener("visibilitychange", setRun);
+  }
+
+  /* ---------- études de cas des projets ----------
+     Tout le contenu vient du CV. Une capture réelle s'affiche si le fichier
+     captures/<id>.png existe ; sinon son emplacement reste invisible. */
+  var CASES = {
+    siem: {
+      no: "P·01",
+      fr: { t: "Plateforme SIEM en cloud", w: "Projet académique · Université Mundiapolis",
+            ctx: "Centraliser les événements de sécurité dans une solution SIEM hébergée dans le cloud, pour détecter les anomalies et les incidents.",
+            did: ["Mise en place d'une solution <b>SIEM</b> (Security Information and Event Management) en environnement <b>cloud</b>.",
+                  "<b>Agrégation et corrélation de logs</b> pour détecter les anomalies et les incidents de sécurité.",
+                  "Implémentation de <b>cas d'usage</b> pour la détection des menaces et la <b>réponse aux incidents</b>."],
+            res: ["Meilleure <b>visibilité</b> sur les événements de sécurité.",
+                  "Processus de <b>détection des menaces</b> amélioré."],
+            flow: [["Sources de logs"], ["Agrégation"], ["Corrélation", "le cœur du SIEM", 1], ["Cas d'usage de détection"], ["Alerte → réponse à incident"]],
+            shot: "Règle de détection ou alerte du SIEM" },
+      en: { t: "Cloud SIEM platform", w: "Academic project · Université Mundiapolis",
+            ctx: "Centralise security events in a cloud-hosted SIEM to detect anomalies and incidents.",
+            did: ["Built a <b>SIEM</b> (Security Information and Event Management) solution in a <b>cloud</b> environment.",
+                  "<b>Aggregated and correlated logs</b> to detect anomalies and security incidents.",
+                  "Implemented <b>use cases</b> for threat detection and <b>incident response</b>."],
+            res: ["Better <b>visibility</b> into security events.",
+                  "Improved <b>threat detection</b> process."],
+            flow: [["Log sources"], ["Aggregation"], ["Correlation", "the core of the SIEM", 1], ["Detection use cases"], ["Alert → incident response"]],
+            shot: "SIEM detection rule or alert" },
+      tags: ["SIEM", "Cloud", "Log correlation", "Threat detection", "Incident response"]
+    },
+    opnsense: {
+      no: "P·02",
+      fr: { t: "Pare-feu et segmentation OPNsense", w: "Projet académique · Université Mundiapolis",
+            ctx: "Concevoir un réseau segmenté en zones, avec un pare-feu central qui décide quels flux passent de l'une à l'autre.",
+            did: ["Création d'une <b>architecture réseau virtualisée</b> avec 4 machines virtuelles.",
+                  "Déploiement d'<b>OPNsense</b> comme pare-feu central.",
+                  "Configuration de trois zones : <b>DMZ publique</b>, <b>DMZ privée</b>, <b>LAN client</b>.",
+                  "Mise en place des <b>règles de filtrage</b> via l'interface OPNsense."],
+            res: ["Flux réseau <b>contrôlés et sécurisés</b> entre les différentes zones."],
+            flow: [["Extérieur (WAN)"], ["OPNsense", "pare-feu central · règles de filtrage", 1], [null, ["DMZ publique", "DMZ privée", "LAN client"]]],
+            note: "Architecture virtualisée sur 4 machines virtuelles.",
+            shot: "Schéma ou règles de filtrage OPNsense" },
+      en: { t: "OPNsense firewall and segmentation", w: "Academic project · Université Mundiapolis",
+            ctx: "Design a network split into zones, with a central firewall deciding which traffic may cross from one to another.",
+            did: ["Designed a <b>virtualised network architecture</b> with 4 virtual machines.",
+                  "Deployed <b>OPNsense</b> as the central firewall.",
+                  "Configured three zones: <b>public DMZ</b>, <b>private DMZ</b>, <b>client LAN</b>.",
+                  "Implemented <b>filtering rules</b> through the OPNsense interface."],
+            res: ["Traffic between zones <b>controlled and secured</b>."],
+            flow: [["Outside (WAN)"], ["OPNsense", "central firewall · filtering rules", 1], [null, ["Public DMZ", "Private DMZ", "Client LAN"]]],
+            note: "Virtualised architecture on 4 virtual machines.",
+            shot: "OPNsense diagram or filtering rules" },
+      tags: ["OPNsense", "Firewall", "DMZ", "Segmentation", "VMware"]
+    },
+    packetfence: {
+      no: "P·03",
+      fr: { t: "Contrôle d'accès réseau PacketFence", w: "Projet académique · Université Mundiapolis",
+            ctx: "Contrôler qui se connecte au réseau : chaque utilisateur et chaque machine doit s'authentifier avant d'obtenir un accès.",
+            did: ["Déploiement d'une solution de <b>contrôle d'accès réseau (NAC)</b> avec PacketFence.",
+                  "Mise en œuvre de l'<b>authentification 802.1X</b>.",
+                  "Intégration avec un serveur <b>RADIUS</b> et <b>Active Directory</b>.",
+                  "<b>Gestion dynamique</b> des accès réseau."],
+            res: ["Connexions des utilisateurs et des machines <b>sécurisées</b>."],
+            flow: [["Utilisateur ou machine"], ["Équipement réseau", "authentification 802.1X"], ["PacketFence + RADIUS", "décision d'accès", 1], ["Active Directory", "vérification de l'identité"], ["Accès accordé dynamiquement"]],
+            shot: "Console PacketFence ou politique d'accès" },
+      en: { t: "PacketFence network access control", w: "Academic project · Université Mundiapolis",
+            ctx: "Control who joins the network: every user and every device must authenticate before being granted access.",
+            did: ["Deployed a <b>network access control (NAC)</b> solution with PacketFence.",
+                  "Implemented <b>802.1X authentication</b>.",
+                  "Integrated a <b>RADIUS</b> server and <b>Active Directory</b>.",
+                  "<b>Dynamic management</b> of network access."],
+            res: ["User and device connections <b>secured</b>."],
+            flow: [["User or device"], ["Network device", "802.1X authentication"], ["PacketFence + RADIUS", "access decision", 1], ["Active Directory", "identity check"], ["Access granted dynamically"]],
+            shot: "PacketFence console or access policy" },
+      tags: ["PacketFence", "NAC", "802.1X", "RADIUS", "Active Directory"]
+    },
+    zeek: {
+      no: "P·04",
+      fr: { t: "Supervision réseau avec Zeek", w: "Stage FedEx · février – juin 2026",
+            ctx: "Un serveur SMB contenait des données sensibles, et un audit Cisco exigeait une traçabilité complète des accès : qui accède à quoi, quand, depuis quelle machine — sans perturber le réseau de production.",
+            did: ["<b>Déploiement et configuration de Zeek</b> sur une machine Ubuntu sous VMware, alimentée par un <b>port miroir (SPAN)</b> du switch.",
+                  "Logs Zeek au <b>format JSON</b>, collectés par <b>Filebeat</b> et indexés dans <b>Elasticsearch</b>, visualisés dans <b>Kibana</b>.",
+                  "Politique <b>ILM</b> : rollover à 30 jours ou 50 GB, suppression automatique à 365 jours.",
+                  "<b>Suivi des activités des utilisateurs</b> arrivant par le VPN SSL : compte, machine source, partage, fichiers."],
+            res: ["<b>Traçabilité totale et horodatée</b> de chaque accès, en réponse directe aux exigences de l'audit Cisco.",
+                  "Lors d'un incident, <b>détection dans les logs DNS</b> de requêtes de type DGA vers un serveur C2 : le poste a été isolé et le malware supprimé avant toute exfiltration."],
+            flow: [["Utilisateurs", "via VPN SSL"], ["Serveur SMB", "données sensibles"], ["Port miroir (SPAN)"], ["Zeek", "analyse passive", 1], ["Stack ELK", "Filebeat → Elasticsearch → Kibana"]],
+            article: "articles/zeek-smb.html",
+            shot: "Journaux Zeek ou tableau de bord Kibana (anonymisés)" },
+      en: { t: "Network monitoring with Zeek", w: "FedEx internship · February – June 2026",
+            ctx: "An SMB server held sensitive data, and a Cisco audit required full access traceability: who accesses what, when, from which machine — without disturbing the production network.",
+            did: ["<b>Deployed and configured Zeek</b> on an Ubuntu VM (VMware), fed by a switch <b>port mirror (SPAN)</b>.",
+                  "Zeek logs in <b>JSON</b>, shipped by <b>Filebeat</b> into <b>Elasticsearch</b> and visualised in <b>Kibana</b>.",
+                  "<b>ILM</b> policy: rollover at 30 days or 50 GB, automatic deletion at 365 days.",
+                  "<b>Tracked user activity</b> coming in over the SSL VPN: account, source host, share, files."],
+            res: ["<b>Complete, timestamped traceability</b> of every access — a direct answer to the Cisco audit requirements.",
+                  "During an incident, <b>DNS logs revealed</b> DGA-style queries to a C2 server: the host was isolated and the malware removed before any exfiltration."],
+            flow: [["Users", "over SSL VPN"], ["SMB server", "sensitive data"], ["Port mirror (SPAN)"], ["Zeek", "passive analysis", 1], ["ELK stack", "Filebeat → Elasticsearch → Kibana"]],
+            article: "articles/zeek-smb.html",
+            shot: "Zeek logs or Kibana dashboard (anonymised)" },
+      tags: ["Zeek", "SMB", "SPAN", "Ubuntu", "VMware", "Filebeat", "Elasticsearch", "Kibana", "ILM"]
+    },
+    zabbix: {
+      no: "P·05",
+      fr: { t: "Monitoring d'infrastructure Zabbix", w: "Stage FedEx · février – juin 2026",
+            ctx: "Superviser l'infrastructure réseau depuis un point central, avec des alertes et des tableaux de bord.",
+            did: ["<b>Déploiement de Zabbix</b> pour la supervision de l'infrastructure réseau.",
+                  "Configuration des <b>alertes</b>.",
+                  "Configuration des <b>tableaux de bord</b>.",
+                  "Première prise en main de Zabbix lors du stage à la <b>Compagnie Industrielle des Fibres</b> (2024)."],
+            res: ["<b>Supervision centralisée</b> de l'infrastructure réseau."],
+            flow: [["Équipements réseau"], ["Zabbix", "supervision centralisée", 1], [null, ["Alertes", "Tableaux de bord"]]],
+            shot: "Tableau de bord Zabbix" },
+      en: { t: "Zabbix infrastructure monitoring", w: "FedEx internship · February – June 2026",
+            ctx: "Monitor the network infrastructure from a central point, with alerts and dashboards.",
+            did: ["<b>Deployed Zabbix</b> to monitor the network infrastructure.",
+                  "Configured <b>alerts</b>.",
+                  "Configured <b>dashboards</b>.",
+                  "First hands-on with Zabbix during the <b>Compagnie Industrielle des Fibres</b> internship (2024)."],
+            res: ["<b>Centralised monitoring</b> of the network infrastructure."],
+            flow: [["Network devices"], ["Zabbix", "central monitoring", 1], [null, ["Alerts", "Dashboards"]]],
+            shot: "Zabbix dashboard" },
+      tags: ["Zabbix", "Monitoring", "Alerting", "Dashboards"]
+    },
+    greenbone: {
+      no: "P·06",
+      fr: { t: "Gestion des vulnérabilités Greenbone", w: "Stage FedEx · février – juin 2026",
+            ctx: "Évaluer la posture de sécurité des systèmes, puis distinguer les failles réellement exploitables.",
+            did: ["<b>Évaluation des vulnérabilités</b> avec Greenbone (OpenVAS).",
+                  "<b>Analyse des scores CVSS</b> pour évaluer la posture de sécurité des systèmes.",
+                  "<b>Tests de pénétration internes</b> pour valider l'exploitabilité des vulnérabilités identifiées.",
+                  "Proposition de <b>recommandations et d'actions correctives</b>."],
+            res: ["Contribution aux exigences d'un <b>audit de sécurité Cisco</b>."],
+            flow: [["Scan Greenbone"], ["Analyse CVSS"], ["Test d'intrusion", "exploitable ou non ?", 1], ["Recommandations"], ["Audit de sécurité Cisco"]],
+            shot: "Extrait de rapport Greenbone (anonymisé)" },
+      en: { t: "Greenbone vulnerability management", w: "FedEx internship · February – June 2026",
+            ctx: "Assess the security posture of the systems, then separate the flaws that are really exploitable.",
+            did: ["<b>Vulnerability assessment</b> with Greenbone (OpenVAS).",
+                  "<b>CVSS score analysis</b> to evaluate the systems' security posture.",
+                  "<b>Internal penetration tests</b> to validate the exploitability of the findings.",
+                  "<b>Remediation recommendations</b> and corrective actions."],
+            res: ["Contribution to the requirements of a <b>Cisco security audit</b>."],
+            flow: [["Greenbone scan"], ["CVSS analysis"], ["Penetration test", "exploitable or not?", 1], ["Recommendations"], ["Cisco security audit"]],
+            shot: "Greenbone report excerpt (anonymised)" },
+      tags: ["Greenbone", "OpenVAS", "CVSS", "Pentest", "Kali Linux", "Metasploit"]
+    }
+  };
+
+  var dlg = document.getElementById("case");
+  if (dlg && typeof dlg.showModal === "function") {
+    var LBL = {
+      fr: { ctx: "Le contexte", did: "Ce que j'ai fait", res: "Le résultat", flow: "Schéma de principe", stack: "Outils", shot: "Capture", art: "Lire l'article complet →" },
+      en: { ctx: "Context", did: "What I did", res: "Outcome", flow: "How it fits together", stack: "Tools", shot: "Screenshot", art: "Read the full article (French) →" }
+    };
+    var lastCard = null;
+    function li(arr){ return "<ul>" + arr.map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul>"; }
+    function flowHtml(f){
+      return f.map(function(st, i){
+        var box = st[0] === null
+          ? '<div class="st grp">' + st[1].map(function(z){ return "<span>" + z + "</span>"; }).join("") + "</div>"
+          : '<div class="st' + (st[2] ? " key" : "") + '">' + st[0] + (st[1] ? "<small>" + st[1] + "</small>" : "") + "</div>";
+        return (i ? '<span class="ar" aria-hidden="true">→</span>' : "") + box;
+      }).join("");
+    }
+    function openCase(id, card){
+      var c = CASES[id]; if (!c) return;
+      var l = root.getAttribute("data-ui") === "en" ? "en" : "fr", d = c[l], L = LBL[l];
+      document.getElementById("case-no").textContent = c.no;
+      document.getElementById("case-title").textContent = d.t;
+      document.getElementById("case-where").textContent = d.w;
+      document.getElementById("case-body").innerHTML =
+        "<h4>" + L.ctx + '</h4><p class="txt">' + d.ctx + "</p>" +
+        "<h4>" + L.did + '</h4><div class="job" style="display:block;padding:0;border:0">' + li(d.did) + "</div>" +
+        "<h4>" + L.res + '</h4><div class="job" style="display:block;padding:0;border:0">' + li(d.res) + "</div>" +
+        "<h4>" + L.flow + '</h4><div class="flow">' + flowHtml(d.flow) + "</div>" +
+        (d.note ? '<p class="flownote">' + d.note + "</p>" : "") +
+        '<figure class="shot" id="case-shot" hidden><img alt="' + d.shot + '"><figcaption>' + d.shot + "</figcaption></figure>" +
+        "<h4>" + L.stack + '</h4><div class="chips">' + c.tags.map(function(t){ return "<span>" + t + "</span>"; }).join("") + "</div>" +
+        (d.article ? '<a class="btn btn-p btn-s" style="margin-top:22px" href="' + d.article + '">' + L.art + "</a>" : "");
+      // la capture n'apparaît que si le fichier existe vraiment
+      var fig = document.getElementById("case-shot"), img = fig.querySelector("img");
+      img.onload = function(){ fig.hidden = false; };
+      img.src = "captures/" + id + ".png";
+      lastCard = card || null;
+      dlg.showModal();
+      dlg.scrollTop = 0;
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-case]"), function(card){
+      card.addEventListener("click", function(){ openCase(card.dataset.case, card); });
+      card.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openCase(card.dataset.case, card); }
+      });
+    });
+    document.getElementById("case-close").addEventListener("click", function(){ dlg.close(); });
+    dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener("close", function(){ if (lastCard) lastCard.focus({ preventScroll: true }); });
+  }
+
+  /* ---------- bouton de contact flottant (téléphone) ---------- */
+  var fab = document.getElementById("fab");
+  if (fab && "IntersectionObserver" in window) {
+    // visible une fois le hero dépassé, masqué quand la section contact est à l'écran
+    var pastHero = false, atContact = false;
+    function fabUpdate(){ fab.classList.toggle("show", pastHero && !atContact); }
+    new IntersectionObserver(function(es){ pastHero = !es[0].isIntersecting; fabUpdate(); }).observe(hero);
+    new IntersectionObserver(function(es){ atContact = es[0].isIntersecting; fabUpdate(); }, { threshold: .15 })
+      .observe(document.getElementById("contact"));
+  }
+
+  /* ---------- drapeau du Maroc qui ondule ---------- */
+  var flag = document.getElementById("flag");
+  if (flag) {
+    // le drapeau est dessiné une fois, à plat, aux proportions officielles (2:3)
+    var FW = 900, FH = 600, src = document.createElement("canvas");
+    src.width = FW; src.height = FH;
+    var sc = src.getContext("2d");
+    sc.fillStyle = "#C1272D"; sc.fillRect(0, 0, FW, FH);
+    var R = FH * .253, cxs = FW / 2, cys = FH / 2;
+    sc.beginPath();
+    for (var i = 0; i < 5; i++){
+      var ang = -Math.PI / 2 + i * 4 * Math.PI / 5;
+      var px = cxs + R * Math.cos(ang), py = cys + R * Math.sin(ang);
+      if (i) sc.lineTo(px, py); else sc.moveTo(px, py);
+    }
+    sc.closePath();
+    sc.strokeStyle = "#006233"; sc.lineWidth = FH * .036; sc.lineJoin = "miter"; sc.miterLimit = 10;
+    sc.stroke();
+
+    // puis rendu en fines bandes verticales décalées : c'est ce qui fait onduler le tissu
+    var fctx2 = flag.getContext("2d"), fdpr2 = Math.min(devicePixelRatio || 1, 2);
+    // écran tactile : bandes deux fois plus larges et 30 i/s, le tissu reste fluide pour bien moins de calcul
+    var OW, OH, PAD, STRIP = fine ? 3 : 6, flagOn = true, fframe = 0;
+    function flagSize(){
+      OW = Math.round(flag.getBoundingClientRect().width) || 340;
+      PAD = OW * .09;
+      OH = Math.round(OW * FH / FW + PAD * 2);
+      flag.width = OW * fdpr2; flag.height = OH * fdpr2;
+      flag.style.height = OH + "px";
+      fctx2.setTransform(fdpr2, 0, 0, fdpr2, 0, 0);
+    }
+    function flagDraw(t){
+      var k = OW / FW, h = FH * k;
+      fctx2.clearRect(0, 0, OW, OH);
+      fctx2.globalCompositeOperation = "source-over";
+      for (var x = 0; x < FW; x += STRIP){
+        // côté gauche tenu (caché derrière le corps), côté droit libre : l'amplitude y grandit
+        var free = x / FW;
+        var amp = PAD * (.12 + .88 * free);
+        var ph = x / FW * 9.5 + t * 2.1;
+        var dy = Math.sin(ph) * amp + Math.sin(ph * .47 + t * 1.3) * amp * .35;
+        var sq = 1 - Math.abs(Math.cos(ph)) * .035 * free;   // le tissu se tasse un peu dans les creux
+        // bandes qui se chevauchent d'un pixel : pas de jointure visible
+        fctx2.drawImage(src, x, 0, Math.min(STRIP * 2, FW - x), FH, x * k, PAD + dy + h * (1 - sq) / 2, Math.min(STRIP * 2, FW - x) * k, h * sq);
+      }
+      // ombres et reflets suivant la pente de la vague, en un seul dégradé continu
+      var g = fctx2.createLinearGradient(0, 0, OW, 0);
+      for (var s2 = 0; s2 <= 80; s2++){
+        var u = s2 / 80;
+        var slope = Math.cos(u * 9.5 + t * 2.1) * (.25 + .75 * u);
+        g.addColorStop(u, slope > 0 ? "rgba(255,255,255," + slope * .2 + ")" : "rgba(0,0,0," + -slope * .5 + ")");
+      }
+      fctx2.globalCompositeOperation = "source-atop";
+      fctx2.fillStyle = g;
+      fctx2.fillRect(0, 0, OW, OH);
+      // éclairage de scène : le bas du tissu plonge dans l'ombre, comme le reste de la page
+      var gv = fctx2.createLinearGradient(0, 0, 0, OH);
+      gv.addColorStop(0, "rgba(0,0,0,0)"); gv.addColorStop(.55, "rgba(0,0,0,.08)"); gv.addColorStop(1, "rgba(0,0,0,.42)");
+      fctx2.fillStyle = gv;
+      fctx2.fillRect(0, 0, OW, OH);
+      fctx2.globalCompositeOperation = "source-over";
+    }
+    flagSize();
+    addEventListener("resize", function(){ flagSize(); flagDraw(performance.now() / 1000); }, { passive: true });
+    if (reduce) {
+      flagDraw(.6);
+    } else {
+      (function wave(now){
+        if (flagOn && (fine || (++fframe & 1))) flagDraw(now / 1000);
+        requestAnimationFrame(wave);
+      })(performance.now());
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function(es){ flagOn = es[0].isIntersecting; }).observe(flag);
+      }
+    }
+  }
+
+  /* ---------- apparition et lien actif ---------- */
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: .08 });
+    Array.prototype.forEach.call(document.querySelectorAll(".rv"), function(el){ io.observe(el); });
+
+    var links = Array.prototype.slice.call(document.querySelectorAll("#navlinks a"));
+    var spy = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        links.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id); });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    ["whoami","expertise","parcours","projets","arsenal"].forEach(function(id){
+      var s = document.getElementById(id); if (s) spy.observe(s);
+    });
+  }
+
+  /* ---------- copier l'adresse ---------- */
+  var copyBtn = document.getElementById("copy"), copied = document.getElementById("copied");
+  copyBtn.addEventListener("click", function(){
+    var txt = document.getElementById("mail").textContent.trim();
+    function done(){ copied.hidden = false; setTimeout(function(){ copied.hidden = true; }, 2200); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(done, select);
+    } else { select(); }
+    function select(){
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("mail"));
+      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  });
+
+  /* ================= TERMINAL ================= */
+  var out = document.getElementById("termout");
+  var form = document.getElementById("termform");
+  var input = document.getElementById("termin");
+  var unlocked = false;
+  var history = [], hpos = -1;
+
+  var T = {
+    fr: {
+      boot: ["[ ok ] initialisation du profil…",
+             "[ ok ] mundiapolis · cycle ingénieur · sécurité & gestion des risques",
+             "[ ok ] disponibilité : 02/02/2027 → 31/07/2027",
+             ""],
+      welcome: "Tape <b class='c'>help</b> pour la liste des commandes.",
+      help: ["<b class='p'>whoami</b>      qui je suis, en trois lignes",
+             "<b class='p'>skills</b>      les compétences, par domaine",
+             "<b class='p'>experience</b>  les deux stages",
+             "<b class='p'>education</b>   le parcours académique",
+             "<b class='p'>certs</b>       les certifications",
+             "<b class='p'>ctf</b>         les classements",
+             "<b class='p'>contact</b>     comment me joindre",
+             "<b class='p'>lang</b>        basculer FR / EN",
+             "<b class='p'>clear</b>       nettoyer l'écran"],
+      whoami: ["Marwane Ouahid — élève-ingénieur en sécurité et gestion des risques,",
+               "Université Mundiapolis, Casablanca. Dernière année.",
+               "Je cherche un stage de fin d'études de six mois, février → juillet 2027."],
+      skills: ["<span class='c'>détection</span>      Zeek · Zabbix · SIEM · corrélation de logs · MITRE ATT&CK",
+               "<span class='c'>réseau</span>         FortiGate · OPNsense · VLAN · VPN · 802.1X · PacketFence",
+               "<span class='c'>vulnérabilités</span> Greenbone/OpenVAS · CVSS · Nmap",
+               "<span class='c'>offensif</span>       Kali Linux · Metasploit · forensic · Active Directory",
+               "<span class='c'>identités</span>      Active Directory · RADIUS · AWS IAM",
+               "<span class='c'>cloud</span>          AWS · VMware · Docker · Veeam",
+               "<span class='c'>code</span>           Python · C · C++ · Java · SQL · Dart"],
+      experience: ["<b class='p'>FedEx</b> — stage réseau &amp; cybersécurité, février – juin 2026",
+                   "  Zeek sur un serveur SMB sensible, Zabbix sur l'infrastructure,",
+                   "  Greenbone/OpenVAS et CVSS, tests d'intrusion internes,",
+                   "  contribution aux exigences d'un audit de sécurité Cisco.",
+                   "",
+                   "<b class='p'>CIF</b> — stage d'observation, juillet → août 2024",
+                   "  Zabbix, FortiGate, Active Directory, DNS/DHCP/VLAN/VPN,",
+                   "  VMware et Veeam."],
+      education: ["2022 → …   Université Mundiapolis — cycle ingénieur, sécurité et gestion",
+                  "           des risques (Bac+5), après deux ans de classes préparatoires",
+                  "2023 → …   Yiwu Industrial &amp; Commercial College, Chine — double diplôme Big Data",
+                  "2022       Baccalauréat International — sciences physiques"],
+      certs: ["ISO/IEC 27001 · ITIL 4 · IBM Cybersecurity (Security+ et CySA+)",
+              "AWS Cloud · Huawei Cloud · ALX Intelligence artificielle · EF SET C1"],
+      ctf: ["CTF national DGSSI     53ᵉ / 1 076+ équipes   <span class='c'>top 5 %</span>",
+            "CTF Mundiapolis         2ᵉ / 15 équipes"],
+      contact: ["e-mail    ma.ouahid@mundiapolis.ma",
+                "linkedin  <a class='c' href='https://www.linkedin.com/in/marwane-ouahid-0ab745309' target='_blank' rel='noopener'>linkedin.com/in/marwane-ouahid-0ab745309</a>",
+                "ville     Casablanca, Maroc — mobile",
+                "CV        le bouton « Ouvrir le CV » en haut de page"],
+      unknown: function(c){ return "commande introuvable : " + c + ". tape <b class='c'>help</b>."; },
+      flagline: "tu as trouvé. envoie-moi le flag dans ton premier message, ça me fera plaisir.",
+      already: "déjà déverrouillé. le flag est plus haut."
+    },
+    en: {
+      boot: ["[ ok ] loading profile…",
+             "[ ok ] mundiapolis · engineering degree · security & risk management",
+             "[ ok ] availability: 2027-02-02 → 2027-07-31",
+             ""],
+      welcome: "Type <b class='c'>help</b> for the list of commands.",
+      help: ["<b class='p'>whoami</b>      who I am, in three lines",
+             "<b class='p'>skills</b>      skills, by area",
+             "<b class='p'>experience</b>  the two internships",
+             "<b class='p'>education</b>   academic background",
+             "<b class='p'>certs</b>       certifications",
+             "<b class='p'>ctf</b>         competition rankings",
+             "<b class='p'>contact</b>     how to reach me",
+             "<b class='p'>lang</b>        switch FR / EN",
+             "<b class='p'>clear</b>       clear the screen"],
+      whoami: ["Marwane Ouahid — security and risk management engineering student,",
+               "Université Mundiapolis, Casablanca. Final year.",
+               "Looking for a six-month final-year internship, February → July 2027."],
+      skills: ["<span class='c'>detection</span>       Zeek · Zabbix · SIEM · log correlation · MITRE ATT&CK",
+               "<span class='c'>network</span>         FortiGate · OPNsense · VLAN · VPN · 802.1X · PacketFence",
+               "<span class='c'>vulnerabilities</span> Greenbone/OpenVAS · CVSS · Nmap",
+               "<span class='c'>offensive</span>       Kali Linux · Metasploit · forensics · Active Directory",
+               "<span class='c'>identity</span>        Active Directory · RADIUS · AWS IAM",
+               "<span class='c'>cloud</span>           AWS · VMware · Docker · Veeam",
+               "<span class='c'>code</span>            Python · C · C++ · Java · SQL · Dart"],
+      experience: ["<b class='p'>FedEx</b> — network &amp; cybersecurity intern, February – June 2026",
+                   "  Zeek on a sensitive SMB server, Zabbix across the infrastructure,",
+                   "  Greenbone/OpenVAS and CVSS, internal penetration tests,",
+                   "  contribution to the requirements of a Cisco security audit.",
+                   "",
+                   "<b class='p'>CIF</b> — observation internship, July → August 2024",
+                   "  Zabbix, FortiGate, Active Directory, DNS/DHCP/VLAN/VPN,",
+                   "  VMware and Veeam."],
+      education: ["2022 → …   Université Mundiapolis — engineering degree, security and risk",
+                  "           management (5 years), after two years of preparatory classes",
+                  "2023 → …   Yiwu Industrial &amp; Commercial College, China — Big Data double degree",
+                  "2022       International Baccalaureate — physical sciences"],
+      certs: ["ISO/IEC 27001 · ITIL 4 · IBM Cybersecurity (Security+ and CySA+)",
+              "AWS Cloud · Huawei Cloud · ALX Artificial Intelligence · EF SET C1"],
+      ctf: ["DGSSI national CTF     53rd / 1,076+ teams   <span class='c'>top 5%</span>",
+            "Mundiapolis CTF          2nd / 15 teams"],
+      contact: ["email     ma.ouahid@mundiapolis.ma",
+                "linkedin  <a class='c' href='https://www.linkedin.com/in/marwane-ouahid-0ab745309' target='_blank' rel='noopener'>linkedin.com/in/marwane-ouahid-0ab745309</a>",
+                "city      Casablanca, Morocco — mobile",
+                "CV        the “Open my CV” button at the top of the page"],
+      unknown: function(c){ return "command not found: " + c + ". type <b class='c'>help</b>."; },
+      flagline: "you found it. send me the flag in your first message, it will make my day.",
+      already: "already unlocked. the flag is above."
+    }
+  };
+
+  function L(){ return T[root.getAttribute("data-ui")] || T.fr; }
+  function say(lines, cls){
+    (Array.isArray(lines) ? lines : [lines]).forEach(function(t){
+      var d = document.createElement("div");
+      if (cls) d.className = cls;
+      d.innerHTML = t;
+      out.appendChild(d);
+    });
+    out.scrollTop = out.scrollHeight;
+  }
+
+  function boot(){
+    out.textContent = "";
+    var b = L().boot.slice();
+    (function next(){
+      if (!b.length){ say(L().welcome, "d"); return; }
+      say(b.shift(), "d");
+      setTimeout(next, reduce ? 0 : 230);
+    })();
+  }
+  boot();
+
+  function run(raw){
+    var cmd = raw.trim();
+    if (!cmd) return;
+    say("<span class='p'>marwane@sec:~$</span> " + cmd.replace(/</g, "&lt;"));
+    var k = cmd.toLowerCase();
+    var d = L();
+    if (k === "clear")            { out.textContent = ""; return; }
+    if (k === "help" || k === "?"){ say(d.help); return; }
+    if (k === "whoami")           { say(d.whoami); return; }
+    if (k === "skills")           { say(d.skills); return; }
+    if (k === "experience" || k === "exp"){ say(d.experience); return; }
+    if (k === "education" || k === "edu"){ say(d.education); return; }
+    if (k === "certs" || k === "certifications"){ say(d.certs); return; }
+    if (k === "ctf" || k === "rank"){ say(d.ctf); return; }
+    if (k === "contact")          { say(d.contact); return; }
+    if (k === "lang")             { setLang(root.getAttribute("data-ui") === "fr" ? "en" : "fr", true); boot(); return; }
+    if (k === "sudo -l" || k === "sudo su" || k === "sudo"){
+      if (unlocked){ say(d.already, "w"); return; }
+      unlocked = true;
+      say(["", "<span class='w'>[sudo] permissions pour marwane :</span>",
+           "  (ALL) NOPASSWD: /usr/bin/hire",
+           "",
+           "<span class='p'>FLAG{y0u_r34d_th3_s0urc3_M0U}</span>",
+           "", "<span class='c'>" + d.flagline + "</span>", ""]);
+      return;
+    }
+    say(d.unknown(cmd.replace(/</g, "&lt;")), "w");
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = input.value;
+    if (v.trim()) { history.push(v); hpos = history.length; }
+    run(v);
+    input.value = "";
+  });
+  input.addEventListener("keydown", function(e){
+    if (e.key === "ArrowUp" && hpos > 0){ hpos--; input.value = history[hpos]; e.preventDefault(); }
+    else if (e.key === "ArrowDown"){ hpos = Math.min(hpos + 1, history.length); input.value = history[hpos] || ""; }
+  });
+
+  /* ---------- l'indice, pour qui ouvre la console ---------- */
+  try {
+    console.log("%c marwane@sec ", "background:#C9F73D;color:#05070A;font-weight:700;padding:3px 6px;border-radius:4px");
+    console.log("%cUn flag est caché sur cette page. Deux façons de le trouver :\n  1. lis le commentaire en haut du code source\n  2. le terminal accepte une commande qui n'est pas dans help\n\nA flag is hidden on this page. Two ways in:\n  1. read the comment at the top of the source\n  2. the terminal accepts a command that is not in help",
+      "color:#83959C;font-family:monospace;line-height:1.6");
+  } catch(e){}
+})();
+</script>
+
+</body>
+</html>
